@@ -1,5 +1,7 @@
 #!/bin/sh
-cp -v ~/.zshrc .zshrc
-cp -v ~/.zprofile .zprofile
-cp -v ~/.xinitrc .xinitrc
-cp -v ~/.config/picom/picom.conf .config/picom/picom.conf
+dotFolder=".dotfiles/"
+confFolder=".config/"
+cp -v ~/.zshrc 				${dotFolder}.zshrc
+cp -v ~/.zprofile 			${dotFolder}.zprofile
+cp -v ~/.xinitrc 			${dotFolder}.xinitrc
+cp -v ~/.config/picom/picom.conf 	${confFolder}picom/picom.conf
