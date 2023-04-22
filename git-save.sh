@@ -1,5 +1,7 @@
 #!/bin/sh
+echo "--------------------------------"
 echo "Pushing Config Changes to Github"
+echo "--------------------------------"
 
 git add .
 msg="updating config files `date`"

@@ -1,6 +1,11 @@
 #!/bin/sh
 dotFolder="dotfiles/"
 confFolder="config/"
+
+echo "--------------------------------"
+echo "Saving config files"
+echo "--------------------------------"
+
 cp -v ~/.zshrc 				${dotFolder}.zshrc
 cp -v ~/.zprofile 			${dotFolder}.zprofile
 cp -v ~/.xinitrc 			${dotFolder}.xinitrc
