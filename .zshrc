@@ -75,3 +75,4 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # Resolution and Wallpaper
 xrandr -s 1600x900
 xwallpaper --output Virtual-1 --trim 1x1+0+0 --focus ~/Downloads/winter.jpg
+setxkbmap gb
