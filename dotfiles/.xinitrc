@@ -1,0 +1,2 @@
+picom -b
+exec dwm

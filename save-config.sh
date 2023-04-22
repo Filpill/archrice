@@ -1,6 +1,6 @@
 #!/bin/sh
-dotFolder=".dotfiles/"
-confFolder=".config/"
+dotFolder="dotfiles/"
+confFolder="config/"
 cp -v ~/.zshrc 				${dotFolder}.zshrc
 cp -v ~/.zprofile 			${dotFolder}.zprofile
 cp -v ~/.xinitrc 			${dotFolder}.xinitrc
