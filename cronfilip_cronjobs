@@ -1,2 +1,0 @@
-SHELL=/bin/zsh
-* * * * * filpill source $HOME/.profile; source $HOME/.bashrc; env DISPLAY=:0.0 /home/filpill/.local/bin/random_wallpaper.sh

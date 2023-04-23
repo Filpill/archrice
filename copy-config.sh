@@ -26,4 +26,4 @@ cp -v ~/.local/bin/random_wallpaper.sh 	${shellFolder}/random_wallpaper.sh
 echo "--------------------------------------------------------------"
 echo "                     Saving local cronjobs"
 echo "--------------------------------------------------------------"
-crontab -l > ${cronFolder}filip_cronjobs
+crontab -l > ${cronFolder}/filip_cronjobs
