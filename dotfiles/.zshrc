@@ -1,5 +1,8 @@
+#Figlet
+figlet -t -f DOS\ Rebel "Filpill" | lolcat
+
 ## Add SSH-Keys
-eval $(keychain --eval ~/.ssh/id_rsa/arch_vm)
+eval $(keychain --eval ~/.ssh/id_rsa/arch_vm 2>/dev/null>/dev/null) 
 
 # Enable colors and change prompt:
 autoload -U colors && colors
@@ -11,6 +14,7 @@ SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 
 # Basic auto/tab complete:
+setopt autocd autopushd
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
@@ -71,4 +75,3 @@ bindkey '^e' edit-command-line
 
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-
