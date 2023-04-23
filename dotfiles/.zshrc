@@ -1,7 +1,10 @@
 #Figlet
 figlet -t -f DOS\ Rebel "Filpill" | lolcat
 
-## Add SSH-Keys
+# Exporting Environment Variables
+export RANGER_LOAD_DEFAULT_RC=false
+
+# Add SSH-Keys
 eval $(keychain --eval ~/.ssh/id_rsa/arch_vm 2>/dev/null>/dev/null) 
 
 # Enable colors and change prompt:
