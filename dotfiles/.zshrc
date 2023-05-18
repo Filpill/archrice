@@ -2,7 +2,7 @@
 eval $(keychain --eval ~/.ssh/id_rsa/arch_vm) #2>/dev/null) 
 
 #Figlet
-figlet -t -f DOS\ Rebel "Filpill" | lolcat
+#figlet -t -f DOS\ Rebel "Filpill" | lolcat
 
 # Exporting Environment Variables
 export RANGER_LOAD_DEFAULT_RC=false
