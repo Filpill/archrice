@@ -11,9 +11,14 @@ export XAUTHORITY=/home/filpill/.Xauthority
 export DISPLAY=:0
 export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus
 
-# Enable colors and change prompt:
+# Enable prompt colors and git branch info
 autoload -U colors && colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+autoload -Uz vcs_info
+zstyle ':vcs_info:git:*' formats '%F{yellow}[%b]%f'
+precmd() { vcs_info }
+setopt prompt_subst
+PS1='%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}${vcs_info_msg_0_} '
+
 
 # Highlight Folders in Different Color
 alias ls='ls --color'
