@@ -15,6 +15,9 @@ export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus
 autoload -U colors && colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
+# Highlight Folders in Different Color
+alias ls='ls --color'
+
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
