@@ -1,0 +1,2 @@
+# Aliases - Sourced in zshrc
+alias vim="nvim"

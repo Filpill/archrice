@@ -1,22 +1,13 @@
-# Filip's Arch Config Files And Scripts
-
-- config folder contains configuration files for particular programs
-- cron folder contains desktop cron jobs files
-- shell folder includes custom shell scripts for desktop
-- dotfiles folder contains configuration for: git, terminal and xinitrc
+# Filip's Arch Config Files And Scripts -- WORK IN PROGRESS
 
 # Saving System Configs/Scripts/Dots
-After making changes to your system files, you can run the script called "copy-config.sh" to save everything to this repository.
-
-```bash
-./copy-config.sh
-```
-
-# Deploying Dotfiles
-Go to the dotfiles folder and execute the apply-dot.sh
-
-```bash
-./apply-dot.sh
-```
+The **action.sh** contains a variety of functions to help apply various configurations to your system. (It's still currently under progress)
 
 This will copy all the dotfiles from this folder to you desktop home folder.
+
+### TO DO
+- Post Install Tasks e.g. 
+    - Sudoers
+    - Change default shell to zsh
+    - Put files in the relevant directories
+    - Allow script to be curl'ed directly from the github and executed
