@@ -3,11 +3,11 @@
 #Define Variables For Saving Dotfiles and Folders to Git Repo
 dot_array=("zshrc" "zprofile" "xinitrc")
 conf_array=("nvim" "picom" "ranger")
+de_folder="$HOME/desktop_setup"
 config_folder="${de_folder}/$(basename $(pwd))/config"
 script_folder="${de_folder}/$(basename $(pwd))/script"
 
 #Making sure we have DE Folder Setup For Organisation
-de_folder="$HOME/desktop_setup"
 if [ -d "${de_folder}" ]; then
     echo "desktop env folder already exists"
 else
@@ -46,15 +46,36 @@ function copy_local {
     crontab -l > ${script_folder}/filip_crontab
 }
 
-function apply_config {
-echo "APPLY"
-#
-## Apply Dot Script
-#cp .xinitrc ~/.xinitrc
-#cp .gitconfig ~/.gitconfig
-#cp .zshrc ~/.zshrc
-#cp .zprofile ~/.zprofile
-#cp .vimrc ~/.vimrc
+function deploy_config {
+    echo "Deploying Git Repo Config to Local System"
+    echo "========================================="
+    #Looping Through Git Dotfiles
+    for file in "${config_folder}/dotfiles/${file}"/*; do
+        if [ -f ${file} ];  
+            then echo "Deploying dotfile .${file}"
+            cp ${config_folder}/dotfiles/${file} $HOME/.${file}
+        fi
+    done
+
+    #Looping Through Git Configs 
+    for folder in "$folder ${config_folder}"/*; do
+        if [ -d "$folder" ]; 
+            then echo "Deploying config $(basename $folder)"
+            cp -r $folder $HOME/.config
+        fi 
+    done
+
+    #Looping Through Scripts 
+    for file in "$file ${script_folder}"/*; do
+        if [ -f $file ]; 
+            then echo "Deploying script $(basename $file)"
+            cp $file $HOME/.local/bin
+        fi 
+    done
+
+    #-----
+    #Deploying Crontabs -- TO DO
+    #-----
 }
 
 function program_install {
@@ -70,9 +91,11 @@ function program_install {
         pArray+=$program
     done
 
+    echo "Run System Update - Enter PW"
     #sudo pacman -Syu
+    echo "The following programs are going to be installed:"
+    echo $pArray
     sudo pacman -S $pArray
-
 }
 
 function suckless_install {
@@ -132,7 +155,7 @@ while true; do
     read num
     case $num in
         1) copy_local ;;
-        2) apply_config ;;
+        2) deploy_config ;;
         3) program_install ;;
         4) suckless_install  ;;
         5) git_push ;;
