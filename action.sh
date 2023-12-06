@@ -20,58 +20,58 @@ function copy_local {
     echo "==========================================="
     #Looping Through Dotfile Array
     for file in "${dot_array[@]}"; do
-        if [ -f $HOME/.${file} ];  
-            then echo "Saving dotfile .${file}"
-            cp $HOME/.${file} ${config_folder}/dotfiles/${file}
+        if [ -f $HOME/${file} ];  
+            then echo "Saving dotfile ${file}"
+            cp $HOME/${file} ${config_folder}/dotfiles/${file}
         fi
     done
 
-    #Looping Through Config Array
-    for folder in "$HOME/.config"/*; do
-        if [ -d "$folder" ]; 
-            then echo "Saving config $(basename $folder)"
-            cp -r $folder ${config_folder}
-        fi 
-    done
+    ##Looping Through Config Array
+    #for folder in "$HOME/.config"/*; do
+    #    if [ -d "$folder" ]; 
+    #        then echo "Saving config $(basename $folder)"
+    #        cp -r $folder ${config_folder}
+    #    fi 
+    #done
 
-    #Looping Through Scripts 
-    for file in "$HOME/.local/bin"/*; do
-        if [ -f $file ]; 
-            then echo "Saving script $(basename $file)"
-            cp $file ${script_folder}
-        fi 
-    done
+    ##Looping Through Scripts 
+    #for file in "$HOME/.local/bin"/*; do
+    #    if [ -f $file ]; 
+    #        then echo "Saving script $(basename $file)"
+    #        cp $file ${script_folder}
+    #    fi 
+    #done
 
-    #Saving Crontabs
-    crontab -l > ${script_folder}/filip_crontab
+    ##Saving Crontabs
+    #crontab -l > ${script_folder}/filip_crontab
 }
 
 function deploy_config {
     echo "Deploying Git Repo Config to Local System"
     echo "========================================="
     #Looping Through Git Dotfiles
-    for file in "${config_folder}/dotfiles/${file}"/*; do
-        if [ -f ${file} ];  
-            then echo "Deploying dotfile .${file}"
-            cp ${config_folder}/dotfiles/${file} $HOME/.${file}
+    for file in "${dot_array[@]}"; do
+        if [ -f ${config_folder}/dotfiles/${file}/{.[!.]*,*}; ];  
+        then echo "Deploying dotfile $file)"
+            cp -t ${file} $HOME
         fi
     done
 
-    #Looping Through Git Configs 
-    for folder in "$folder ${config_folder}"/*; do
-        if [ -d "$folder" ]; 
-            then echo "Deploying config $(basename $folder)"
-            cp -r $folder $HOME/.config
-        fi 
-    done
+    ##Looping Through Git Configs 
+    #for folder in "${config_folder}"/*; do
+    #    if [ -d "$folder" ] && [ $(basename $folder) -ne "dotfiles" ]; 
+    #        then echo "Deploying config $(basename $folder)"
+    #        cp -r $folder $HOME/.config
+    #    fi 
+    #done
 
-    #Looping Through Scripts 
-    for file in "$file ${script_folder}"/*; do
-        if [ -f $file ]; 
-            then echo "Deploying script $(basename $file)"
-            cp $file $HOME/.local/bin
-        fi 
-    done
+    ##Looping Through Scripts 
+    #for file in "${script_folder}"/*; do
+    #    if [ -f $file ]; 
+    #        then echo "Deploying script $(basename $file)"
+    #        cp $file $HOME/.local/bin
+    #    fi 
+    #done
 
     #-----
     #Deploying Crontabs -- TO DO
