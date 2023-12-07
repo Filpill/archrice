@@ -1,9 +1,10 @@
 #!/bin/sh
 
 #Define Variables For Saving Dotfiles and Folders to Git Repo
-dot_array=(".zshrc" ".zprofile" ".xinitrc")
+dot_array=(".zshrc" ".zshenv" ".zprofile" ".xinitrc")
 conf_array=("nvim" "picom" "ranger")
 de_folder="$HOME/desktop_setup"
+base_folder="${de_folder}/$(basename $(pwd))"
 config_folder="${de_folder}/$(basename $(pwd))/config"
 script_folder="${de_folder}/$(basename $(pwd))/script"
 
@@ -41,6 +42,10 @@ function copy_local {
             cp $file ${script_folder}
         fi 
     done
+
+    #Saving Fonts
+    echo "Saving Fonts"
+    cp -r $HOME/.local/share/fonts $base_folder
 
     #Saving Crontabs
     crontab -l > ${script_folder}/filip_crontab

@@ -5,11 +5,12 @@
 #figlet -t -f DOS\ Rebel "Filpill" | lolcat
 
 # Exporting Environment Variables
-export RANGER_LOAD_DEFAULT_RC=false
-export EDITOR="/usr/bin/nvim"
-export XAUTHORITY=/home/filpill/.Xauthority
-export DISPLAY=:0
-export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus
+#export RANGER_LOAD_DEFAULT_RC=false
+#export EDITOR="/usr/bin/nvim"
+#export XAUTHORITY=/home/filpill/.Xauthority
+#export DISPLAY=:0
+#export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus
+source $HOME/.zshenv
 
 # Enable prompt colors and git branch info
 autoload -U colors && colors
