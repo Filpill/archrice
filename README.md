@@ -6,7 +6,7 @@ The **action.sh** contains a variety of functions to help apply various configur
 ### TO DO
 - Post Install Tasks e.g. 
     - Sudoers
-    - Segment more of the scripts to be easure to call on
+    - Segment more of the functions into separate scripts?
     - Change default shell to zsh
     - Put files in the relevant directories
     - Pull out all the directories/mappings into separate file to be called on
