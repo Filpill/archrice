@@ -2,7 +2,6 @@
 
 #Define Variables For Saving Dotfiles and Folders to Git Repo
 dot_array=(".zshrc" ".zshenv" ".zprofile" ".xinitrc")
-conf_array=("nvim" "picom" "ranger")
 de_folder="$HOME/desktop_setup"
 base_folder="${de_folder}/$(basename $(pwd))"
 config_folder="${de_folder}/$(basename $(pwd))/config"
@@ -101,6 +100,13 @@ function program_install {
     echo "The following programs are going to be installed:"
     echo $pArray
     sudo pacman -S $pArray
+
+    echo "Installing Image Previewer ctpv from github"
+    cd $de_folder
+    git clone https://github.com/NikitaIvanovV/ctpv
+    cd $de_folder/ctpv
+    make
+    sudo make install
 }
 
 function suckless_install {

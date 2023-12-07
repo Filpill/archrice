@@ -1,5 +1,8 @@
-cifs-utils
+bat
+,cifs-utils
+,ffmpeg
 ,firefox
+,graphicsmagick
 ,texlive-latex
 ,lf
 ,moreutils

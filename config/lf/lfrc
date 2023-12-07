@@ -2,6 +2,10 @@
 set shell sh
 set icons true
 set hidden true
+set previewer ctpv
+set cleaner ctpvclear
+&ctpv -s $id
+&ctpvquit $id
 
 # set '-eu' options for shell commands
 # These options are used to have safer shell commands. Option '-e' is used to
