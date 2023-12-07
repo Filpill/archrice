@@ -10,6 +10,8 @@ bat
 ,neovim
 ,picom
 ,poppler
+,python
+,python-pip
 ,ranger
 ,smbclient
 ,sxhkd
