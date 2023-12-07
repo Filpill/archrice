@@ -18,6 +18,7 @@ cifs-utils
 ,xorg
 ,xorg-server
 ,xorg-xprop
+,unzip
 ,zathura
 ,zathura-pdf-mupdf
 ,zsh
