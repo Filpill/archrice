@@ -119,14 +119,18 @@ function suckless_install {
     else
         echo "st - does not exist - cloning from repo"
         git clone https://github.com/Filpill/st.git
+        cd ${de_folder}/st
         sudo make clean install
     fi
+    
+    cd ${de_folder}
 
     if [ -d "${de_folder}/dwm" ]; then
         echo "dwm - already exists"
     else
         echo "dwm - does not exist - cloning from repo"
         git clone https://github.com/Filpill/dwm.git
+        cd ${de_folder}/dwm
         sudo make clean install
     fi
 }
