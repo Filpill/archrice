@@ -3,7 +3,8 @@
 #xrandr -s 1920x1080
 
 # Wallpaper sript
-zsh ~/.local/bin/random_wallpaper.sh
+#zsh ~/.local/bin/random_wallpaper.sh
+xwallpaper --output Virtual-1 --stretch ~/desktop_setup/wallpaperDL/wallpaper/cartoon_cove.jpg
 
 # Keyboard Properties
 setxkbmap gb
