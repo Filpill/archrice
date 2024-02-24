@@ -8,5 +8,5 @@ get
 
 while :; do
     xsetroot -name "$(get_date)"
-    sleep 1s
+    sleep 1m
 done
