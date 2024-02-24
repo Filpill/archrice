@@ -2,9 +2,12 @@
 # Set Resolution
 #xrandr -s 1920x1080
 
-# Wallpaper sript
+# Wallpaper Script
 #zsh ~/.local/bin/random_wallpaper.sh
 xwallpaper --output Virtual-1 --stretch ~/desktop_setup/wallpaperDL/wallpaper/cartoon_cove.jpg
+
+# DWM Status Bar Script
+.local/bin/dwm_status.sh &
 
 # Keyboard Properties
 setxkbmap gb
@@ -15,4 +18,5 @@ sxhkd & # Key Binding Daemon
 picom -b
 
 # Start dwm
-exec dwm
+#exec dwm
+ssh-agent dwm
