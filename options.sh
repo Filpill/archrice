@@ -5,7 +5,7 @@ dot_array=(".zshrc" ".zshenv" ".zprofile" ".xinitrc")
 de_folder="$HOME/desktop_setup"
 base_folder="${de_folder}/$(basename $(pwd))"
 config_folder="${de_folder}/$(basename $(pwd))/config"
-script_folder="${de_folder}/$(basename $(pwd))/script"
+script_folder="${de_folder}/$(basename $(pwd))/scripts"
 
 #Making sure we have DE Folder Setup For Organisation
 if [ -d "${de_folder}" ]; then
@@ -47,7 +47,7 @@ function copy_local {
     cp -r $HOME/.local/share/fonts $base_folder
 
     #Saving Crontabs
-    crontab -l > ${script_folder}/filip_crontab
+    #crontab -l > ${script_folder}/filip_crontab
 }
 
 function deploy_config {
