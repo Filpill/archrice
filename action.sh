@@ -133,6 +133,17 @@ function suckless_install {
         cd ${de_folder}/dwm
         sudo make clean install
     fi
+
+    cd ${de_folder}
+
+    if [ -d "${de_folder}/dmenu" ]; then
+        echo "dmenu - already exists"
+    else
+        echo "dmenu - does not exist - cloning from repo"
+        git clone https://github.com/Filpill/dmenu.git
+        cd ${de_folder}/dmenu
+        sudo make clean install
+    fi
 }
 
 function git_push {
