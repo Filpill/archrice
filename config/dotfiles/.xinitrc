@@ -7,7 +7,7 @@
 xwallpaper --output Virtual-1 --stretch ~/desktop_setup/wallpaperDL/wallpaper/cartoon_cove.jpg
 
 # DWM Status Bar Script
-.local/bin/dwmStatus.sh &
+$HOME/.local/bin/dwmStatus.sh &
 
 # Keyboard Properties
 setxkbmap gb

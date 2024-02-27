@@ -6,5 +6,5 @@ get_date() {
 
 while :; do
     xsetroot -name "$(get_date)"
-    sleep 1m
+    sleep 15s
 done
