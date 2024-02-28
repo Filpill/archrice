@@ -1,3 +1,3 @@
 #!/bin/sh
 folder="$HOME/.local/bin"
-exec $folder/$(find $folder -type f -exec basename {} \; | dmenu)
+exec $folder/$(find $folder -type f -exec basename {} \; | sort | dmenu)
