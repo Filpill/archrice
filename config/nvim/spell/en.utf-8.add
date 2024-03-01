@@ -83,3 +83,5 @@ psql
 crontab
 steamlink
 dmenu
+pacstrap
+fstab

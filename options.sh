@@ -26,6 +26,8 @@ function copy_local {
         fi
     done
 
+    echo "------------------------------------------"
+
     #Looping Through Config Array
     for folder in "$HOME/.config"/*; do
         if [ -d "$folder" ] && [ "$(basename $folder)" != "dotfiles" ]; then 
@@ -34,6 +36,8 @@ function copy_local {
         fi 
     done
 
+    echo "------------------------------------------"
+
     #Looping Through Scripts 
     for file in "$HOME/.local/bin"/*; do
         if [ -f $file ]; then
@@ -41,6 +45,8 @@ function copy_local {
             cp $file ${script_folder}
         fi 
     done
+
+    echo "------------------------------------------"
 
     #Saving Fonts
     echo "Saving Fonts"
@@ -61,6 +67,8 @@ function deploy_config {
         fi
     done
 
+    echo "------------------------------------------"
+
     #Looping Through Git Configs 
     for folder in "${config_folder}"/*; do
         if [ -d "$folder" ] && [ $(basename $folder) != "dotfiles" ]; then 
@@ -68,6 +76,8 @@ function deploy_config {
             cp -r $folder $HOME/.config
         fi 
     done
+
+    echo "------------------------------------------"
 
     #Looping Through Scripts 
     for file in "${script_folder}"/*; do
