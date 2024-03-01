@@ -2,7 +2,9 @@
 
 #Define Variables For Saving Dotfiles and Folders to Git Repo
 dot_array=(".zshrc" ".zshenv" ".zprofile" ".xinitrc")
+suckless_array=("dwm" "st" "dmenu" "dwmblocks")
 de_folder="$HOME/desktop_setup"
+suckless_folder="${de_folder}/suckless"
 base_folder="${de_folder}/$(basename $(pwd))"
 config_folder="${de_folder}/$(basename $(pwd))/config"
 script_folder="${de_folder}/$(basename $(pwd))/scripts"
@@ -13,6 +15,14 @@ if [ -d "${de_folder}" ]; then
 else
     mkdir $de_folder
     echo "desktop env folder created"
+fi
+
+#Making sure we have Suckless Folder Setup For Organisation
+if [ -d "${suckless_folder}" ]; then
+    echo "suckless folder already exists"
+else
+    mkdir $suckless_folder
+    echo "suckless folder created"
 fi
 
 function copy_local {
@@ -122,38 +132,63 @@ function program_install {
 function suckless_install {
     echo "Suckless Install Procedure"
     echo "=========================="
-    cd $de_folder
 
-    if [ -d "${de_folder}/st" ]; then
-        echo "st - already exists"
-    else
-        echo "st - does not exist - cloning from repo"
-        git clone https://github.com/Filpill/st.git
-        cd ${de_folder}/st
-        sudo make clean install
-    fi
-    
-    cd ${de_folder}
+    for program in "${suckless_array[@]}"; do
+        cd $suckless_folder
+                                                           
+        if [ -d "${suckless_folder}/${program}" ]; then
+            echo "${program} - already exists"
+        else
+            echo "${program} - does not exist - cloning from repo"
+            git clone https://github.com/Filpill/${program}.git
+            cd ${de_folder}/st
+            sudo make clean install
+        fi
+    done
 
-    if [ -d "${de_folder}/dwm" ]; then
-        echo "dwm - already exists"
-    else
-        echo "dwm - does not exist - cloning from repo"
-        git clone https://github.com/Filpill/dwm.git
-        cd ${de_folder}/dwm
-        sudo make clean install
-    fi
+    #cd $de_folder
 
-    cd ${de_folder}
+    #if [ -d "${de_folder}/st" ]; then
+    #    echo "st - already exists"
+    #else
+    #    echo "st - does not exist - cloning from repo"
+    #    git clone https://github.com/Filpill/st.git
+    #    cd ${de_folder}/st
+    #    sudo make clean install
+    #fi
+    #
+    #cd ${de_folder}
 
-    if [ -d "${de_folder}/dmenu" ]; then
-        echo "dmenu - already exists"
-    else
-        echo "dmenu - does not exist - cloning from repo"
-        git clone https://github.com/Filpill/dmenu.git
-        cd ${de_folder}/dmenu
-        sudo make clean install
-    fi
+    #if [ -d "${de_folder}/dwm" ]; then
+    #    echo "dwm - already exists"
+    #else
+    #    echo "dwm - does not exist - cloning from repo"
+    #    git clone https://github.com/Filpill/dwm.git
+    #    cd ${de_folder}/dwm
+    #    sudo make clean install
+    #fi
+
+    #cd ${de_folder}
+
+    #if [ -d "${de_folder}/dmenu" ]; then
+    #    echo "dmenu - already exists"
+    #else
+    #    echo "dmenu - does not exist - cloning from repo"
+    #    git clone https://github.com/Filpill/dmenu.git
+    #    cd ${de_folder}/dmenu
+    #    sudo make clean install
+    #fi
+
+    #cd ${de_folder}
+    #                                                      
+    #if [ -d "${de_folder}/dwmblocks" ]; then
+    #    echo "dwmblocks - already exists"
+    #else
+    #    echo "dmenu - does not exist - cloning from repo"
+    #    git clone https://github.com/Filpill/dmenu.git
+    #    cd ${de_folder}/dmenu
+    #    sudo make clean install
+    #fi
 }
 
 function git_push {
