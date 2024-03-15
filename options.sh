@@ -8,7 +8,7 @@ suckless_array=("dwm" "st" "dmenu" "dwmblocks")
 
 de_folder="$HOME/desktop_setup"
 suckless_folder="${de_folder}/suckless"
-suckless_folder="${de_folder}/suckless"
+wallpaper_folder="${de_folder}/wallpaperDL"
 base_folder="${de_folder}/$(basename $(pwd))"
 config_folder="${de_folder}/$(basename $(pwd))/config"
 script_folder="${de_folder}/$(basename $(pwd))/scripts"
@@ -153,6 +153,22 @@ function suckless_install {
     done
 }
 
+function wallpaper_program {
+    echo "Wallpaper Program Install"
+    echo "=========================="
+
+    cd ${de_folder}
+    if [ -d "${wallpaper_folder}" ]; then
+        echo "${wallpaper_folder} - already exists"
+    else
+        
+        echo "${wallpaper_folder} - does not exist - cloning from repo"
+        git clone https://github.com/Filpill/wallpaperDL.git
+        cd ${wallpaper_folder}
+        git remote set-url origin git@github.com:Filpill/wallpaperDL.git
+    fi
+}
+
 function git_push {
     echo "Pushing Config and Script Update to Github"
     echo "=========================================="
@@ -173,7 +189,8 @@ declare -A actions=(
     [2]="2 - Deploy Repository Config to Local System" 
     [3]="3 - Install Required Arch Linux Programs"
     [4]="4 - Clone and Install Suckless Programs: dwm | st | dmenu | dwmblocks"
-    [5]="5 - Push Changes to Git Repository"
+    [5]="5 - Clone Python Wallpaper Downloader Program"
+    [6]="6 - Push Changes to Git Repository"
 )
 keys_sorted=($(echo ${!actions[@]} | tr ' ' '\n' | sort -n))
 
@@ -191,7 +208,8 @@ while true; do
         2) deploy_config ;;
         3) program_install ;;
         4) suckless_install  ;;
-        5) git_push ;;
+        5) wallpaper_program  ;;
+        6) git_push ;;
         *) 
             clear
             echo "-------------------------------------------------"
