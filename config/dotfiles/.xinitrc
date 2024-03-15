@@ -3,11 +3,7 @@
 #xrandr -s 1920x1080
 
 # Wallpaper Script
-#zsh ~/.local/bin/random_wallpaper.sh
-xwallpaper --output Virtual-1 --stretch ~/desktop_setup/wallpaperDL/wallpaper/cartoon_cove.jpg
-
-# DWM Status Bar Script
-$HOME/.local/bin/dwmStatus.sh &
+xwallpaper --stretch ~/desktop_setup/wallpaper/cartoon_cove.jpg
 
 # Keyboard Properties
 setxkbmap gb
@@ -20,3 +16,6 @@ picom -b
 # Start dwm
 #exec dwm
 ssh-agent dwm
+
+# DWM Status Bar - Starts After DWM Initialises
+dwmblocks
