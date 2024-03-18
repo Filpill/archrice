@@ -7,6 +7,7 @@
 ,pacman,     texlive-latex,                               "Essential LaTeX utilities"
 ,pacman,     moreutils,                                   "Extra essential Linux utilities"
 ,pacman,     mupdf,                                       "Lightweight CLI document reader"
+,pacman,     neofetch,                                    "System Configuration Display"
 ,pacman,     neovim,                                      "Text Editor"
 ,pacman,     picom,                                       "Compositor for Xorg Desktop"
 ,pacman,     poppler,                                     "PDF rendering library"
