@@ -5,10 +5,5 @@ The **action.sh** contains a variety of functions to help apply various configur
 
 ### TO DO
 - Post Install Tasks e.g. 
-    - Sudoers
-    - Segment more of the functions into separate scripts?
     - Change default shell to zsh
-    - Put files in the relevant directories
-    - Pull out all the directories/mappings into separate file to be called on
     - Allow script to be curl'ed directly from the github and executed
-    - Change copy_local and deploy_config functions to sit together. Use variables to interchange the source and destination of the copy procedure.

@@ -57,13 +57,13 @@ deployconfig() {
     # Deploy Config, Dotfiles and Scripts
 	whiptail --title "Filpill's Desktop Setup Script" \
             --infobox "Deploying Desktop Dotfiles and Scripts" 7 50
-    cd $HOME
-    mkdir -p "$HOME/.config"
+    cd /home/$name
+    mkdir -p "/home/$name/.config"
 	sudo -u "$name" git -C "$repodir" clone https://github.com/Filpill/archrice.git
-    cp -r "$repodir/archrice/config/dofiles" "$HOME"
-    cp -r "$repodir/archrice/config"         "$HOME/.config"
-    cp -r "$repodir/archrice/scripts"        "$HOME/.local/bin"
-    cp -r "$repodir/archrice/fonts"          "$HOME/.local/share/fonts"
+    cp -r "$repodir/archrice/config/dofiles" "/home/$name"
+    cp -r "$repodir/archrice/config"         "/home/$name/.config"
+    cp -r "$repodir/archrice/scripts"        "/home/$name/.local/bin"
+    cp -r "$repodir/archrice/fonts"          "/home/$name/.local/share/fonts"
 }
 
 installaurhelper() {
@@ -175,6 +175,10 @@ installationloop || "User exited"
 
 # Deploying Configuration | dotfiles, configs, scripts and fonts
 deployconfig || "User exited"
+
+# Change default shell to zsh for user
+chsh -s /bin/zsh "$name" >/dev/null 2>&1
+sudo -u "$name" mkdir - "/home/$name/.cache/zsh"
 
 # Allow wheel users to sudo with password and allow several system commands
 echo "%wheel ALL=(ALL:ALL) ALL" >/etc/sudoers.d/00-filpill-wheel-can-sudo
