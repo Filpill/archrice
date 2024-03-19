@@ -1,9 +1,12 @@
 # Filip's Arch Config Files And Scripts -- WORK IN PROGRESS
 
-# Saving System Configs/Scripts/Dots
-The **action.sh** contains a variety of functions to help apply various configurations to your system (or save new changes). (It's still currently under progress)
+### Installation Instructions
 
-### TO DO
-- Post Install Tasks e.g. 
-    - Change default shell to zsh
-    - Allow script to be curl'ed directly from the github and executed
+Run the below commands to download the script and exectute on your fresh Arch Linux Installation
+
+```bash
+curl -o "https://raw.githubusercontent.com/Filpill/archrice/main/auto_install_deskop.sh" "auto_install_desktop.sh"
+sh auto_install_desktop.sh
+```
+
+(Currently under testing)
