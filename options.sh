@@ -101,10 +101,6 @@ function deploy_config {
             cp $file $HOME/.local/bin
         fi 
     done
-
-    #-----
-    #Deploying Crontabs -- TO DO
-    #-----
 }
 
 function program_install {
