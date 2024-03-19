@@ -57,6 +57,20 @@ adduserandpass() {
 	unset pass1 pass2
 }
 
+installaurhelper() {
+    # Install yay to streamline AUR package build process
+    auryay="https://aur.archlinux.org/yay.git"
+	whiptail --infobox "Installing AUR Helper - yay" 7 50
+    cd $HOME
+    mkdir gitclone
+    cd gitclone
+	whiptail --infobox "Cloning into $auryay..." 7 50
+    git clone $auryay
+    cd yay
+	whiptail --infobox "Building yay..." 7 50
+    makepkg -si
+}
+
 installationloop() {
 	([ -f "$programsfile" ] && cp "$programsfile" /tmp/progs.csv) ||
 		curl -Ls "$programsfile" | sed '/^#/d' >/tmp/progs.csv
@@ -68,13 +82,17 @@ installationloop() {
         description=$(echo "$description" | awk '{$1=$1;print}')
         echo "$n/$total Name of Prog: $tag $name $description"
         whiptail --title "Program Installation" --infobox "Installing $name ($n of $total)...\n$description" 9 75
-        sleep 0.2
+
+        if [ $tag = "pacman" ]; then
+            installpkg 
+        fi
+
     done < "/tmp/progs.csv"
 }
-
 
 #welcomemsg || error "User exited"
 #createuserandpass || error "User exited"
 #usercheck || "User exited"
-installationloop || "User exited"
+#installationloop || "User exited"
+installaurhelper || "User exited"
 clear
