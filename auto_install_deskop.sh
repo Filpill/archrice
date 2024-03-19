@@ -59,16 +59,18 @@ adduserandpass() {
 
 installaurhelper() {
     # Install yay to streamline AUR package build process
-    auryay="https://aur.archlinux.org/yay.git"
-	whiptail --infobox "Installing AUR Helper - yay" 7 50
-    cd $HOME
-    mkdir gitclone
-    cd gitclone
-	whiptail --infobox "Cloning into $auryay..." 7 50
-    git clone $auryay
-    cd yay
-	whiptail --infobox "Building yay..." 7 50
-    makepkg -si
+    pacman -Qq yay && return 0
+	whiptail --infobox "Installing AUR Helper - yay..." 7 50
+    sudo -u "$name" mkdir -p "$repodir/yay"
+    sudo -u "$name" git clone -C "$repodir" clone --depth 1 --single-branch \
+        --no-tags -q "https://aur.archlinux.org/yay.git" "$repodir/yay ||
+        {
+                cd "$repodir/yay" || return 1
+                sudo -u "$name" git pull --force origin master
+        }
+    cd "$repodir/yay" || exit 1
+    sudo -u "$name -D "$repodir/yay" \
+          makepkg --noconfirm -si >/dev/null 2>&1 || return 1
 }
 
 installationloop() {
