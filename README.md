@@ -1,8 +1,10 @@
-# Filip's Arch Config Files And Scripts -- WORK IN PROGRESS
+# Filpill's Automatic Arch Rice Deployment
+
+(Currently under testing)
 
 ### Installation Instructions
 
-Run the below commands to download the script and exectute on your fresh Arch Linux Installation
+Run the below commands to download Arch Linux Desktop Environment
 
 ```bash
 curl -o "https://raw.githubusercontent.com/Filpill/archrice/main/auto_install_deskop.sh" "auto_install_desktop.sh"
