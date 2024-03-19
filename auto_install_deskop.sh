@@ -1,6 +1,7 @@
 #!/bin/sh
 dotfilerepo="https://github.com/Filpill/archrice.git"
 programsfile="https://raw.githubusercontent.com/Filpill/archrice/main/programs.csv"
+export TERM=ansi
 
 installpkg() {
     pacman --noconfirm --needed -S "$1" >/dev/null 2>&1
@@ -56,20 +57,24 @@ adduserandpass() {
 	unset pass1 pass2
 }
 
-readcsv() {
+installationloop() {
 	([ -f "$programsfile" ] && cp "$programsfile" /tmp/progs.csv) ||
 		curl -Ls "$programsfile" | sed '/^#/d' >/tmp/progs.csv
 	total=$(wc -l </tmp/progs.csv)
-	while IFS=, read -r tag name description; do
+	while IFS=";" read -r tag name description; do
         n=$((n+1))
         tag=$(echo "$tag" | awk '{$1=$1;print}')
         name=$(echo "$name" | awk '{$1=$1;print}')
         description=$(echo "$description" | awk '{$1=$1;print}')
         echo "$n/$total Name of Prog: $tag $name $description"
-	done <"/tmp/progs.csv"
+        whiptail --title "Program Installation" --infobox "Installing $name ($n of $total)...\n$description" 9 75
+        sleep 0.2
+    done < "/tmp/progs.csv"
 }
 
-welcomemsg || error "User exited"
-createuserandpass || error "User exited"
-usercheck || "User exited"
-readcsv
+
+#welcomemsg || error "User exited"
+#createuserandpass || error "User exited"
+#usercheck || "User exited"
+installationloop || "User exited"
+clear
