@@ -7,7 +7,7 @@
 Run the below commands to download Arch Linux Desktop Environment
 
 ```bash
-curl -o "https://raw.githubusercontent.com/Filpill/archrice/main/auto_install_deskop.sh" "auto_install_desktop.sh"
+curl -o auto_install_desktop.sh https://raw.githubusercontent.com/Filpill/archrice/main/auto_install_deskop.sh
 sh auto_install_desktop.sh
 ```
 
