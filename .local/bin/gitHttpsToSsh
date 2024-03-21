@@ -1,0 +1,8 @@
+#!/bin/sh
+gitArray=("dwm" "st" "dmenu" "dwmblocks",wallpaperDL)
+for program in "${gitArray[@]}"; do
+    if [ -d "$gitArray/$program" ]; then
+        cd $gitArray/$program
+        git remote set-url origin git@github.com:Filpill/$program.git
+    fi
+done

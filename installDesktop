@@ -72,8 +72,6 @@ deployconfig() {
     rm /home/$name/.bashrc
     rm /home/$name/.bash_profile
     rm /home/$name/.bash_logout
-    rm /home/$name/.vim
-    rm /home/$name/.viminfo
 }
 
 installaurhelper() {
