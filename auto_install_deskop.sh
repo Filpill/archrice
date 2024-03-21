@@ -76,15 +76,13 @@ installaurhelper() {
     pacman -Qq yay && return 0
 	whiptail --infobox "Installing AUR Helper - yay..." 7 50
     sudo -u "$name" mkdir -p "$repodir/yay"
-    sudo -u "$name" git clone -C "$repodir" clone --depth 1 --single-branch \
-        --no-tags -q "https://aur.archlinux.org/yay.git" "$repodir/yay" ||
+    sudo -u "$name" git clone -C "$repodir" clone --depth 1 --single-branch --no-tags -q "https://aur.archlinux.org/yay.git" "$repodir/yay" ||
         {
-                cd "$repodir/yay" || return 1
+                cd "$repodir/yay"
                 sudo -u "$name" git pull --force origin master
         }
-    cd "$repodir/yay" || exit 1
-    sudo -u "$name" -D "$repodir/yay" \
-          makepkg --noconfirm -si >/dev/null 2>&1 || return 1
+    cd "$repodir/yay"
+    sudo -u "$name" makepkg --noconfirm -si 
 }
 
 gitmakeinstall() {
