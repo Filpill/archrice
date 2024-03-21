@@ -186,7 +186,7 @@ deployconfig || "User exited"
 
 # Change default shell to zsh for user
 chsh -s /bin/zsh "$name" >/dev/null 2>&1
-sudo -u "$name" mkdir - "/home/$name/.cache/zsh"
+sudo -u "$name" mkdir -p "/home/$name/.cache/zsh"
 
 # Allow wheel users to sudo with password and allow several system commands
 echo "%wheel ALL=(ALL:ALL) ALL" >/etc/sudoers.d/00-filpill-wheel-can-sudo
