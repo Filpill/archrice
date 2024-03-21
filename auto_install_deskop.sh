@@ -135,8 +135,6 @@ installationloop() {
     done < "/tmp/progs.csv"
 }
 
-installationloop
-
 # Create user and password
 welcomemsg || error "User exited"
 createuserandpass || error "User exited"
