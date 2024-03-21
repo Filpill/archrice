@@ -1,5 +1,5 @@
 #!/bin/sh
-gitArray=("dwm" "st" "dmenu" "dwmblocks",wallpaperDL)
+gitArray=("archrice","dwm" "st" "dmenu" "dwmblocks",wallpaperDL)
 for program in "${gitArray[@]}"; do
     if [ -d "$gitArray/$program" ]; then
         cd $gitArray/$program
