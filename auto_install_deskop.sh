@@ -139,7 +139,7 @@ usercheck || "User exited"
 for x in curl ca-certificates base-devel git ntp zsh; do
 	whiptail --title "Filpill's Desktop Setup Script" \
 		--infobox "Installing \`$x\` which is required to install and configure other programs." 8 70
-	installpkg "$x"
+	pacmaninstall "$x"
 done
 
 # Ensure Date and Time is Synced
