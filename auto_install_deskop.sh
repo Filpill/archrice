@@ -47,7 +47,13 @@ adduserandpass() {
 	useradd -m -g wheel -s /bin/zsh "$name" >/dev/null 2>&1 ||
 		usermod -a -G wheel "$name" && mkdir -p /home/"$name" && chown "$name":wheel /home/"$name"
 	export repodir="/home/$name/.local/src"
+	export scriptdir="/home/$name/.local/bin"
+	export fontdir="/home/$name/.local/share/fonts"
+	export configdir="/home/$name/.config"
 	mkdir -p "$repodir"
+    mkdir -p "$configdir"
+    mkdir -p "$scriptdir"
+    mkdir -p "$fontdir"
 	chown -R "$name":wheel "$(dirname "$repodir")"
 	echo "$name:$pass1" | chpasswd
 	unset pass1 pass2
@@ -58,12 +64,11 @@ deployconfig() {
 	whiptail --title "Filpill's Desktop Setup Script" \
             --infobox "Deploying Desktop Dotfiles and Scripts" 7 50
     cd /home/$name
-    mkdir -p "/home/$name/.config"
 	sudo -u "$name" git -C "$repodir" clone https://github.com/Filpill/archrice.git
     cp -r "$repodir/archrice/config/dofiles" "/home/$name"
-    cp -r "$repodir/archrice/config"         "/home/$name/.config"
-    cp -r "$repodir/archrice/scripts"        "/home/$name/.local/bin"
-    cp -r "$repodir/archrice/fonts"          "/home/$name/.local/share/fonts"
+    cp -r "$repodir/archrice/config"         "$configdir"
+    cp -r "$repodir/archrice/scripts"        "$scriptdir"
+    cp -r "$repodir/archrice/fonts"          "$fontdir"
 }
 
 installaurhelper() {
