@@ -108,6 +108,20 @@ gitmakeinstall() {
 	cd /tmp || return 1
 }
 
+gitdl() {
+	progname="${1##*/}"
+	progname="${progname%.git}"
+	dir="$repodir/$progname"
+	whiptail --title "Filpill's Desktop Setup Script" \
+		--infobox "Installing \`$progname\` ($n of $total) via \`git\` and \`make\`. $(basename "$1") $2" 8 70
+	sudo -u "$name" git -C "$repodir" clone --depth 1 --single-branch \
+		--no-tags -q "$1" "$dir" ||
+		{
+			cd "$dir" || return 1
+			sudo -u "$name" git pull --force origin master
+		}
+}
+
 aurinstall() {
 	whiptail --title "Filpill's Desktop Setup Script" \
 		--infobox "Installing \`$1\` ($n of $total) from the AUR. $1 $2" 9 70
@@ -134,6 +148,7 @@ installationloop() {
             "AUR") aurinstall "$programname" "$comment" ;;
             "pacman") pacmaninstall "$programname" "$comment" ;;
             "github") gitmakeinstall "$programname" "$comment" ;;
+            "gitNoMake") gitdl "$programname" "$comment" ;;
 		esac
     done < "/tmp/progs.csv"
 }
