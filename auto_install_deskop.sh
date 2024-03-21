@@ -120,20 +120,22 @@ installationloop() {
 	([ -f "$programsfile" ] && cp "$programsfile" /tmp/progs.csv) ||
 		curl -Ls "$programsfile" | sed '/^#/d' >/tmp/progs.csv
 	total=$(wc -l </tmp/progs.csv)
-	while IFS=";" read -r tag name description; do
+	while IFS=";" read -r tag programname description; do
         n=$((n+1))
         tag=$(echo "$tag" | awk '{$1=$1;print}')
-        name=$(echo "$name" | awk '{$1=$1;print}')
+        programname=$(echo "$programname" | awk '{$1=$1;print}')
         description=$(echo "$description" | awk '{$1=$1;print}')
-        echo "$n/$total Name of Prog: $tag $name $description"
-        whiptail --title "Program Installation" --infobox "Installing $name ($n of $total)...\n$description" 9 75
+        echo "$n/$total Name of Prog: $tag $programname $description"
+       # whiptail --title "Program Installation" --infobox "Installing $programname ($n of $total)...\n$description" 9 75
 		case "$tag" in
-            "AUR") aurinstall "$program" "$comment" ;;
-            "pacman") pacmaninstall "$program" "$comment" ;;
-            "github") gitmakeinstall "$program" "$comment" ;;
+            "AUR") aurinstall "$programname" "$comment" ;;
+            "pacman") pacmaninstall "$programname" "$comment" ;;
+            "github") gitmakeinstall "$programname" "$comment" ;;
 		esac
     done < "/tmp/progs.csv"
 }
+
+installationloop
 
 # Create user and password
 welcomemsg || error "User exited"
