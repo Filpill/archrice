@@ -1,14 +1,12 @@
 # Filpill's Automatic Arch Rice Deployment
 
-(Currently under testing)
-
 ### Installation Instructions
 
 Run the below commands to download Arch Linux Desktop Environment
 
 ```bash
-curl -o auto_install_desktop.sh https://raw.githubusercontent.com/Filpill/archrice/main/auto_install_deskop.sh
+git clone https://github.com/Filpill/archrice.git
 sh auto_install_desktop.sh
 ```
 
-(Currently under testing)
+After install is complete, you can exit out of root (back to tty) and login as user. The x server should start automatically and execute dwm alongside.
