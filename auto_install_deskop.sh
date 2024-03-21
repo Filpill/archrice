@@ -142,8 +142,8 @@ installationloop() {
         tag=$(echo "$tag" | awk '{$1=$1;print}')
         programname=$(echo "$programname" | awk '{$1=$1;print}')
         description=$(echo "$description" | awk '{$1=$1;print}')
-        echo "$n/$total Name of Prog: $tag $programname $description"
-       # whiptail --title "Program Installation" --infobox "Installing $programname ($n of $total)...\n$description" 9 75
+        #echo "$n/$total Name of Prog: $tag $programname $description"
+        whiptail --title "Program Installation" --infobox "Installing $programname ($n of $total)...\n$description" 9 75
 		case "$tag" in
             "AUR") aurinstall "$programname" "$comment" ;;
             "pacman") pacmaninstall "$programname" "$comment" ;;
