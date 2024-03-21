@@ -65,10 +65,15 @@ deployconfig() {
             --infobox "Deploying Desktop Dotfiles and Scripts" 7 50
     cd /home/$name
 	sudo -u "$name" git -C "$repodir" clone https://github.com/Filpill/archrice.git
-    cp -r "$repodir/archrice/config/dofiles" "/home/$name"
-    cp -r "$repodir/archrice/config"         "$configdir"
-    cp -r "$repodir/archrice/scripts"        "$scriptdir"
-    cp -r "$repodir/archrice/fonts"          "$fontdir"
+    cp -r "$repodir/archrice/config/dotfiles/." "/home/$name"
+    cp -r "$repodir/archrice/config/."          "$configdir"
+    cp -r "$repodir/archrice/scripts/."         "$scriptdir"
+    cp -r "$repodir/archrice/fonts/."           "$fontdir"
+    rm /home/$name/.bashrc
+    rm /home/$name/.bash_profile
+    rm /home/$name/.bash_logout
+    rm /home/$name/.vim
+    rm /home/$name/.viminfo
 }
 
 installaurhelper() {
