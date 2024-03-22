@@ -3,7 +3,7 @@
 #xrandr -s 1920x1080
 
 # Wallpaper Script
-xwallpaper --stretch ~/desktop_setup/wallpaperDL/screensaver/cartoon_fishing_village.jpg
+xwallpaper --stretch $HOME/.local/src/wallpaperDL/screensaver/cartoon_fishing_village.jpg
 
 # Keyboard Properties
 setxkbmap gb
