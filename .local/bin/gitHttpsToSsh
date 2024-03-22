@@ -1,8 +1,9 @@
 #!/bin/sh
 gitArray=("archrice","dwm" "st" "dmenu" "dwmblocks",wallpaperDL)
 for program in "${gitArray[@]}"; do
-    if [ -d "$gitArray/$program" ]; then
-        cd $gitArray/$program
+    echo "switching from https to ssh url for...$program"
+    if [ -d "$HOME/.local/src/$program" ]; then
+        cd "$HOME/.local/src/$program"
         git remote set-url origin git@github.com:Filpill/$program.git
     fi
 done
