@@ -26,7 +26,7 @@ pacman;     xterm;                                       "Terminal Emulator for 
 pacman;     xf86-video-fbdev;                            "Xorg VM Video Driver"
 pacman;     xorg-server;                                 "Graphical server"
 pacman;     xorg-xprop;                                  "Detecting window properties"
-pacman;     xorg-init;                                   "Window Displaying Init System"
+pacman;     xorg-xinit;                                  "X Window Displaying Init System"
 pacman;     openssh;                                     "SSH Agent for Linux"
 pacman;     xwallpaper;                                  "Wallpaper setting program"
 pacman;     unzip;                                       "Unzip file utility"
