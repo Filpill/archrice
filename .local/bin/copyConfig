@@ -6,15 +6,15 @@ dotArray=(".zshrc" ".zshenv" ".zprofile" ".xinitrc")
 echo "Saving dotfiles..."
 for file in "${dotArray[@]}"; do
     if [ -f "$HOME/$file" ]; then 
-        cp "$HOME/$file" "$HOME/.config/dotfiles"
+        cp "$HOME/$file" "$HOME/$riceCollector/.config/dotfiles"
     fi
 done
 
 # Saving configs, scripts, fonts 
-folderArray=(".config",".local/bin",".local/share/fonts")
+folderArray=(".config" ".local/bin" ".local/share/fonts")
 for folder in "${folderArray[@]}"; do
     echo "Saving $folder..."
     if [ -d "$HOME/$folder" ]; then 
-        cp "$HOME/$folder/." "$riceCollector/$folder"
+        cp -r "$HOME/$folder/." "$riceCollector/$folder"
     fi
 done
