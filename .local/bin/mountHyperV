@@ -1,5 +1,5 @@
 #!/bin/sh
-desktop="DESKTOP-R1B3P7P"
+desktop="DESKTOP-6RQ9GMG"
 windows_folder="vm_share_folder"
 linux_folder="/mnt/Hyper-V"
 desktop_ip=$(nmblookup $desktop | head -n 1 | cut -d ' ' -f 1)
