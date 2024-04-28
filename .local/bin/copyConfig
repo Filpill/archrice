@@ -11,8 +11,11 @@ done
 # Saving configs, scripts, fonts 
 folderArray=(".config" ".local/bin" ".local/share/fonts")
 for folder in "${folderArray[@]}"; do
-    if [ -d "$HOME/$folder" ]; then 
+    if [ -d "$HOME/$folder" ] && [ $folder != "VSCodium" ]; then 
         echo "Saving configuration...$HOME/$folder"
         cp -r "$HOME/$folder/." "$riceCollector/$folder"
     fi
 done
+
+# --TO DO - Cleanup Remove VSCodium configs
+rm -rf "$riceCollector/.config/VSCodium"
