@@ -1,5 +1,6 @@
 #!/bin/sh
 # Line 3 Needs to Be run in script as source so it doesnt execute command in sub shell
 #cd "$(find /home/filpill -type d 2>&1 | dmenu -i -l 25)"
-xdotool type cd\ "$(find /home/filpill -type d 2>&1 | dmenu -i -l 25)"  && xdotool key "KP_Enter"
-#xdotool type cd\ "$(find /home/filpill -type d -exec grep -I -q . {} \; | dmenu -i -l 25)"  && xdotool key "KP_Enter"
+xdotool type cd\ "$(find /home/filpill -maxdepth 5  -type d \
+    -not \( -path "*.mozilla*" -o -path "*.rustup*" -o -path "*.cache*" -o -path "*.texlive*" -o -path "*.conda*" -prune \) \
+    2>&1 | dmenu -i -l 25)"  && xdotool key "KP_Enter"
