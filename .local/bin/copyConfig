@@ -2,7 +2,7 @@
 riceCollector="$HOME/.local/src/archrice"
 
 # Saving Dots
-dotArray=(".zshrc" ".zshenv" ".zprofile" ".xinitrc")
+dotArray=(".zshrc" ".zshenv" ".zprofile" ".xinitrc" ".Xresources")
 for file in "${dotArray[@]}"; do
     echo "Saving dotfiles...$HOME/$file"
     cp "$HOME/$file" "$riceCollector/.dotfiles"
