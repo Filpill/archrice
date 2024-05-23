@@ -3,4 +3,4 @@
 #cd "$(find /home/filpill -type d 2>&1 | dmenu -i -l 25)"
 xdotool type cd\ "$(find /home/filpill -maxdepth 5  -type d \
     -not \( -path "*.mozilla*" -o -path "*.rustup*" -o -path "*.cache*" -o -path "*.texlive*" -o -path "*.conda*" -prune \) \
-    2>&1 | dmenu -i -l 25)"  && xdotool key "KP_Enter"
+    2>&1 | dmenu -i -l 10 -p "Select Directory:")"  && xdotool key "KP_Enter"
