@@ -1,5 +1,12 @@
 #!/bin/sh
-gitArray=("archrice" "dwm" "st" "dmenu" "dwmblocks" "wallpaperDL")
+gitArray=(
+    "archrice" 
+    "dwm" 
+    "st" 
+    "dmenu" 
+    "dwmblocks" 
+    "wallpaperDL"
+)
 for program in "${gitArray[@]}"; do
     echo "switching from https to ssh url for...$program"
     if [ -d "$HOME/.local/src/$program" ]; then

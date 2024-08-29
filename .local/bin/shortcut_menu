@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+
+dwm=(
+    "MOD+Enter          | Create New DWM Window"
+    "MOD+Space          | Change Master Window"
+    "MOD+j/k            | Switch DWM Window"
+    "Ctrl+Shift+Up/Down | Zoom Terminal In/Out"
+)
+
+programs=(
+    "MOD+o | Search Path and CD to Destination"
+    "MOD+s | List out user created scripts"
+    "MOD+c | Open IDE Code Editor"
+    "MOD+e | Select Wallpaper"
+    "MOD+w | Open Browser"
+)
+
+case "$(printf "dwm\nprograms\n" | dmenu -l 10 -i -p "Select Shortcut Subset:")" in
+    "dwm") shortcut_array=("${dwm[@]}") ;;
+    "programs") shortcut_array=("${programs[@]}") ;;
+    *) exit 1 ;;
+esac
+
+for i in "${!shortcut_array[@]}"; do
+    echo "${shortcut_array[$i]}"
+done | dmenu -i -l 25 -p "Shortcut List:"
