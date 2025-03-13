@@ -1,9 +1,13 @@
 #!/bin/sh
-# Set Resolution
-#xrandr -s 1920x1080
+
+# Display Order and Scaling
+xrandr --output DP-2 --primary --right-of DP-3
+xrandr --output DP-2 --scale 1x1
+xrandr --output DP-3 --scale 0.6x0.6
 
 # Wallpaper Script
-xwallpaper --stretch $HOME/.local/src/wallpaperDL/screensaver/cartoon_fishing_village.jpg
+xwallpaper --output DP-2 --stretch $HOME/.local/src/wallpaperDL/screensaver/cowboy_bebop_spike_train.jpg
+xwallpaper --output DP-3 --stretch $HOME/.local/src/wallpaperDL/screensaver/evangelion_unit01_rage.jpg
 
 # Keyboard Properties
 setxkbmap gb
@@ -14,7 +18,6 @@ sxhkd & # Key Binding Daemon
 picom -b
 
 # Start dwm
-#exec dwm
 ssh-agent dwm
 
 # DWM Status Bar - Starts After DWM Initialises
