@@ -197,6 +197,12 @@ installationloop || "User exited"
 # Deploying Configuration | dotfiles, configs, scripts and fonts
 deployconfig || "User exited"
 
+# Fixing permissions for VSCode directories
+mkdir /home/$name/.config/Code
+chmod a+w /home/$name/.config/Code
+chmod a+w /home/$name/.vscode/extensions
+chmod a+w /run/user/1000
+
 # Change default shell to zsh for user
 chsh -s /bin/zsh "$name" >/dev/null 2>&1
 sudo -u "$name" mkdir -p "/home/$name/.cache/zsh"
