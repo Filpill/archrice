@@ -1,12 +1,8 @@
 # Add SSH-Keys
-eval $(keychain --eval ~/.ssh/keys/github) #2>/dev/null) 
+eval $(keychain --eval ~/.ssh/keys/github) > /dev/null 2>&1
 
 #Figlet
 #figlet -t -f DOS\ Rebel "Filpill" | lolcat
-
-# Enable oh-my-posh Theming
-# eval "$(oh-my-posh init zsh --config ~/.cache/oh-my-posh/themes/tonybaloney.omp.json)"
-# eval "$(oh-my-posh init zsh --config ~/.config/themes/filipZsh.omp.json)"
 
 # Enable prompt colors and git branch info
 autoload -U colors && colors
