@@ -1,5 +1,5 @@
 # Add SSH-Keys
-#eval $(keychain --eval ~/.ssh/id_rsa/arch_vm) #2>/dev/null) 
+eval $(keychain --eval ~/.ssh/keys/github) #2>/dev/null) 
 
 #Figlet
 #figlet -t -f DOS\ Rebel "Filpill" | lolcat

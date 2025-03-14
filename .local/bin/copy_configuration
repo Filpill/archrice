@@ -1,21 +1,72 @@
 #!/bin/sh
 riceCollector="$HOME/.local/src/archrice"
+echo "=================================================================================="
+echo "   --- 󰴠 Configuration Collection Path | $riceCollector  ---"
+echo "=================================================================================="
+echo ""
 
-# Saving Dots
+echo "  ===================================="
+echo "      -------  Dot Files -------"
+echo "  ===================================="
 dotArray=(".zshrc" ".zshenv" ".zprofile" ".xinitrc" ".Xresources")
 for file in "${dotArray[@]}"; do
-    echo "Saving dotfiles...$HOME/$file"
+    echo "  Saving   |  $HOME/$file"
     cp "$HOME/$file" "$riceCollector/.dotfiles"
 done
+echo ""
+
+excludeConfigSubDir=("VSCodium" "Code" "obs-studio" "conda")
 
 # Saving configs, scripts, fonts 
 folderArray=(".config" ".local/bin" ".local/share/fonts")
 for folder in "${folderArray[@]}"; do
-    if [ -d "$HOME/$folder" ] && [ $folder != "VSCodium" ]; then 
-        echo "Saving configuration...$HOME/$folder"
-        cp -r "$HOME/$folder/." "$riceCollector/$folder"
+    if [ -d "$HOME/$folder" ]; then
+
+        if [ "$folder" == ".config" ]; then
+            echo "  ===================================="
+            echo "      -----  Config Files  -----"
+            echo "  ===================================="
+            # Loop through subdirectories inside ~/.config and skip the excluded ones
+            for subFolder in "$HOME/$folder"/*; do
+                subFolderName=$(basename "$subFolder")
+                
+                if [[ ! " ${excludeConfigSubDir[@]} " =~ " ${subFolderName} " ]] && [ -d "$subFolder" ]; then
+                    echo "  Saving   |  $subFolder"
+                    cp -r "$subFolder" "$riceCollector/$folder/"
+                else
+                    printf "\e[9m"
+                    printf "󰍶  Skipping |  $subFolder"
+                    printf "\e[m\n"
+                fi
+            done
+        fi
+
+        if [ "$folder" == ".local/bin" ]; then
+            echo "  ====================================="
+            echo "      -----  Shell Scripts  -----"
+            echo "  ====================================="
+            echo "Saving configuration | $HOME/$folder"
+            cp -r "$HOME/$folder/." "$riceCollector/$folder"
+        fi
+
+        if [ "$folder" == ".local/share/fonts" ]; then
+            echo "  ====================================="
+            echo "      ------ 󰀺 Font Files  ------"
+            echo "  ====================================="
+            echo "Saving configuration | $HOME/$folder"
+            cp -r "$HOME/$folder/." "$riceCollector/$folder"
+        fi
+
     fi
+    echo ""
 done
 
-# --TO DO - Cleanup Remove VSCodium configs
-rm -rf "$riceCollector/.config/VSCodium"
+
+echo "  =================================================================="
+echo "                  ---------- Reminder  ----------"
+echo "    Please remember to push changes up to git repo for future use!"
+echo "  =================================================================="
+
+
+
+
