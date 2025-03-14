@@ -1,7 +1,7 @@
 #!/bin/sh
 riceCollector="$HOME/.local/src/archrice"
 echo "=================================================================================="
-echo "   --- 󰴠 Configuration Collection Path | $riceCollector  ---"
+echo "   --- 󰑢 Configuration Collection Path | $riceCollector  ---"
 echo "=================================================================================="
 echo ""
 
@@ -29,6 +29,12 @@ for folder in "${folderArray[@]}"; do
             # Loop through subdirectories inside ~/.config and skip the excluded ones
             for subFolder in "$HOME/$folder"/*; do
                 subFolderName=$(basename "$subFolder")
+
+
+                if [[ ! " ${excludeConfigSubDir[@]} " =~ " ${subFolderName} " ]] && [ -f "$subFolder" ]; then
+                    echo "  Saving   |  $subFolder"
+                    cp "$subFolder" "$riceCollector/$folder/"
+                fi
                 
                 if [[ ! " ${excludeConfigSubDir[@]} " =~ " ${subFolderName} " ]] && [ -d "$subFolder" ]; then
                     echo "  Saving   |  $subFolder"
