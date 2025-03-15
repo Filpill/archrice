@@ -3,6 +3,7 @@ pacman;     bat;                                         "Code highlighter and i
 pacman;     cifs-utils;                                  "Microsoft file system utilities"
 pacman;     ffmpeg;                                      "CLI video playback/editing program"
 pacman;     firefox;                                     "Internet browser"
+pacman;     gimp;                                        "Image Editing Software"
 pacman;     graphicsmagick;                              "Image processing system"
 pacman;     hugo;                                        "Static Website Generator"
 pacman;     texlive-latex;                               "Essential LaTeX utilities"
