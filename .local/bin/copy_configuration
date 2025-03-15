@@ -68,10 +68,10 @@ for folder in "${folderArray[@]}"; do
 done
 
 
-echo "  =================================================================="
-echo "                  ---------- Reminder  ----------"
-echo "    Please remember to push changes up to git repo for future use!"
-echo "  =================================================================="
+echo "  ================================================================================"
+echo "                         ---------- Reminder  ----------"
+echo "    Please remember to push changes up to the archrice git repo for future use!"
+echo "  ================================================================================"
 
 
 
