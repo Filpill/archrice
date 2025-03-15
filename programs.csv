@@ -46,7 +46,6 @@ AUR;        htop-vim;                                    "System Monitor with Vi
 AUR;        gsimplecal;                                  "Calendar Application for integration with statusbar"
 AUR;        tty-clock;                                   "Digital Clock for Terminal Display"
 AUR;        simple-mtpfs;                                "Enables mounting of mobile phones"
-AUR;        sunshine-git;                                "Client for connecting moonlight streaming application"
 AUR;        zsh-fast-syntax-highlighting-git;            "Provides syntax highlighting in the shell"
 github;     https://github.com/Filpill/dwm.git;          "dwm - Window Manager"
 github;     https://github.com/Filpill/st.git;           "st - Simple Terminal"
