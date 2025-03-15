@@ -42,6 +42,8 @@ AUR;        picom-simpleanims-git;                       "Picom animation suppor
 AUR;        joypixels;                                   "Emoji Support For Terminal"
 AUR;        ctpv-git;                                    "Wrapper script library to enable TUI image preview for lf or ranger"
 AUR;        htop-vim;                                    "System Monitor with Vim bindings"
+AUR;        gsimplecal;                                  "Calendar Application for integration with statusbar"
+AUR;        tty-clock;                                   "Digital Clock for Terminal Display"
 AUR;        simple-mtpfs;                                "Enables mounting of mobile phones"
 AUR;        zsh-fast-syntax-highlighting-git;            "Provides syntax highlighting in the shell"
 github;     https://github.com/Filpill/dwm.git;          "dwm - Window Manager"

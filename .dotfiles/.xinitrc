@@ -17,6 +17,9 @@ sxhkd & # Key Binding Daemon
 # Terminal Properties
 picom -b
 
+# Polybar Startup
+$HOME/.config/polybar/launch.sh &
+
 # Start dwm
 ssh-agent dwm
 

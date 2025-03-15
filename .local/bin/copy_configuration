@@ -15,7 +15,7 @@ for file in "${dotArray[@]}"; do
 done
 echo ""
 
-excludeConfigSubDir=("VSCodium" "Code" "obs-studio" "conda")
+excludeConfigSubDir=("VSCodium" "Code" "obs-studio" "conda", "gcloud")
 
 # Saving configs, scripts, fonts 
 folderArray=(".config" ".local/bin" ".local/share/fonts")
