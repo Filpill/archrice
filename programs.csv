@@ -4,7 +4,7 @@ pacman;     cifs-utils;                                  "Microsoft file system 
 pacman;     ffmpeg;                                      "CLI video playback/editing program"
 pacman;     firefox;                                     "Internet browser"
 pacman;     graphicsmagick;                              "Image processing system"
-pacman;     keychain;                                    "For adding SSH keys to keychain"
+pacman;     hugo;                                        "Static Website Generator"
 pacman;     texlive-latex;                               "Essential LaTeX utilities"
 pacman;     moreutils;                                   "Extra essential Linux utilities"
 pacman;     mupdf;                                       "Lightweight CLI document reader"
