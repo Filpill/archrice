@@ -20,6 +20,7 @@ pacman;     ranger;                                      "Terminal file explorer
 pacman;     lf;                                          "Terminal file explorer"
 pacman;     smbclient;                                   "Client for mapping shared directories to mount points"
 pacman;     screenkey;                                   "Keystroke Visualiser"
+pacman;     spectacle;                                   "Screenshot/Clipping program"
 pacman;     sxhkd;                                       "Simple X Hot Key Daemon"
 pacman;     sxiv;                                        "Image Viewer"
 pacman;     ueberzug;                                    "Deprecated Image Previewer for Terminal file explorer"
