@@ -35,6 +35,7 @@ pacman;     xorg-xinit;                                  "X Window Displaying In
 pacman;     openssh;                                     "SSH Agent for Linux"
 pacman;     xwallpaper;                                  "Wallpaper setting program"
 pacman;     unzip;                                       "Unzip file utility"
+pacman;     wget;                                        "Program for retrieving web content"
 pacman;     uv;                                          "Fast Python Package Manager Written in Rust"
 pacman;     zathura;                                     "Lightweight pdf reader"
 pacman;     zathura-pdf-mupdf;                           "Library dependency to render pdf on Zathura"
