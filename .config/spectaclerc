@@ -1,0 +1,13 @@
+[Annotations]
+annotationToolType=6
+
+[GuiConfig]
+captureMode=0
+
+[ImageSave]
+lastImageSaveAsLocation=file:///home/filpill/Pictures/Screenshots/nvidia_gpu_drivers.png
+lastImageSaveLocation=file:///home/filpill/Pictures/Screenshots/nvidia_gpu_drivers.png
+translatedScreenshotsFolder=Screenshots
+
+[VideoSave]
+translatedScreencastsFolder=Screencasts
