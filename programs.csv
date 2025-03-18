@@ -7,6 +7,7 @@ pacman;     gimp;                                        "Image Editing Software
 pacman;     graphicsmagick;                              "Image processing system"
 pacman;     gphoto2;                                     "Command line front-end for libgphoto2"
 pacman;     hugo;                                        "Static Website Generator"
+pacman;     jq;                                          "Command Line JSON parser"
 pacman;     texlive-latex;                               "Essential LaTeX utilities"
 pacman;     moreutils;                                   "Extra essential Linux utilities"
 pacman;     mupdf;                                       "Lightweight CLI document reader"
