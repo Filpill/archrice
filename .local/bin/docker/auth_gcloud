@@ -1,3 +1,3 @@
 #!/bin/sh
-source $(pwd)/variables
+source $BASE_DIRECTORY/variables
 gcloud auth configure-docker $AR_TYPE

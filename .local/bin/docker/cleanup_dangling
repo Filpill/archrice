@@ -1,4 +1,6 @@
 #/bin/sh
+source $BASE_DIRECTORY/variables
+
 echo "Deleting Dangling Images"
 docker rmi $(docker images -f "dangling=true" -q)
 
