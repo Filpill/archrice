@@ -1,0 +1,10 @@
+#!/bin/sh
+gcloud compute networks create filip-vpc --project=checkmate-453316 --subnet-mode=auto --mtu=1460 --bgp-routing-mode=regional --bgp-best-path-selection-mode=legacy && 
+
+gcloud compute firewall-rules create filip-vpc-allow-custom --project=checkmate-453316 --network=projects/checkmate-453316/global/networks/filip-vpc --description=Allows\ connection\ from\ any\ source\ to\ any\ instance\ on\ the\ network\ using\ custom\ protocols. --direction=INGRESS --priority=65534 --source-ranges=10.128.0.0/9 --action=ALLOW --rules=all && 
+
+gcloud compute firewall-rules create filip-vpc-allow-icmp --project=checkmate-453316 --network=projects/checkmate-453316/global/networks/filip-vpc --description=Allows\ ICMP\ connections\ from\ any\ source\ to\ any\ instance\ on\ the\ network. --direction=INGRESS --priority=65534 --source-ranges=0.0.0.0/0 --action=ALLOW --rules=icmp && 
+
+gcloud compute firewall-rules create filip-vpc-allow-rdp --project=checkmate-453316 --network=projects/checkmate-453316/global/networks/filip-vpc --description=Allows\ RDP\ connections\ from\ any\ source\ to\ any\ instance\ on\ the\ network\ using\ port\ 3389. --direction=INGRESS --priority=65534 --source-ranges=0.0.0.0/0 --action=ALLOW --rules=tcp:3389 && 
+
+gcloud compute firewall-rules create filip-vpc-allow-ssh --project=checkmate-453316 --network=projects/checkmate-453316/global/networks/filip-vpc --description=Allows\ TCP\ connections\ from\ any\ source\ to\ any\ instance\ on\ the\ network\ using\ port\ 22. --direction=INGRESS --priority=65534 --source-ranges=0.0.0.0/0 --action=ALLOW --rules=tcp:22
