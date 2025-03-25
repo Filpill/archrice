@@ -1,0 +1,12 @@
+#!/bin/sh
+source $(pwd)/variables
+
+if docker ps --filter "name=$CONTAINER_NAME" --filter "status=running" --format "{{.Names}}" | grep -q "^my_container$"; then
+    echo "Container: $CONTAINER_NAME is running -- proceeding to stop container"
+    docker stop $CONTAINER_NAME
+else
+    echo "Container: $CONTAINER_NAME is not running"
+fi
+
+docker container rm $CONTAINER_NAME
+docker run -it --name=$CONTAINER_NAME -p $EXTERNAL_PORT:$INTERNAL_PORT -d $AR_TYPE/$GCP_PROJECT/$AR_REPO/$IMAGE_NAME:$IMAGE_TAG
