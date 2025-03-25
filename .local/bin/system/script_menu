@@ -1,0 +1,17 @@
+#!/bin/sh
+folder="$HOME/.local/bin"
+
+# Step 1: List directories and allow user to select one
+selected_dir=$(find "$folder" -mindepth 1 -type d -exec basename {} \; | sort | dmenu -p "Select Folder:")
+
+# If no folder is selected, exit
+[ -z "$selected_dir" ] && exit
+
+# Step 2: List files in the selected directory and allow user to choose one
+selected_file=$(find "$folder/$selected_dir" -maxdepth 1 -type f -exec basename {} \; | sort | dmenu -p "Select Script:")
+
+# If no file is selected, exit
+[ -z "$selected_file" ] && exit
+
+# Execute the selected script
+exec "$folder/$selected_dir/$selected_file"

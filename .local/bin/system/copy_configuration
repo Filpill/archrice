@@ -8,6 +8,8 @@ echo ""
 echo "  ===================================="
 echo "      -------  Dot Files -------"
 echo "  ===================================="
+rm -rf "$riceCollector/.dotfiles"
+mkdir "$riceCollector/.dotfiles"
 dotArray=(".zshrc" ".zshenv" ".zprofile" ".xinitrc" ".Xresources")
 for file in "${dotArray[@]}"; do
     echo "  Saving   |  $HOME/$file"
@@ -15,11 +17,13 @@ for file in "${dotArray[@]}"; do
 done
 echo ""
 
-excludeConfigSubDir=("GIMP" "VSCodium" "Code" "obs-studio" "conda", "gcloud" "sunshine")
+excludeConfigSubDir=("GIMP" "VSCodium" "Code" "obs-studio" "conda" "gcloud" "sunshine" "draw.io" "calcurse" "discord" "Electron" "gtk-2.0" "gtk-3.0")
 
 # Saving configs, scripts, fonts 
-folderArray=(".config" ".local/bin" ".local/share/fonts")
-for folder in "${folderArray[@]}"; do
+mainDirectories=(".config" ".local/bin" ".local/share/fonts")
+for folder in "${mainDirectories[@]}"; do
+    rm -rf $riceCollector/$folder
+    mkdir $riceCollector/$folder
     if [ -d "$HOME/$folder" ]; then
 
         if [ "$folder" == ".config" ]; then
@@ -48,11 +52,16 @@ for folder in "${folderArray[@]}"; do
         fi
 
         if [ "$folder" == ".local/bin" ]; then
+            scriptDirectories=("docker" "git" "camera" "system")
             echo "  ====================================="
             echo "      -----  Shell Scripts  -----"
             echo "  ====================================="
-            echo "Saving configuration | $HOME/$folder"
-            cp -r "$HOME/$folder/." "$riceCollector/$folder"
+                for scriptDir in "$HOME/$folder"/*; do
+                    ScriptDirName=$(basename "$scriptDir")
+                    echo "Saving configuration | $scriptDir"
+                    mkdir "$riceCollector/$folder/$ScriptDirName"
+                    cp -r "$scriptDir/." "$riceCollector/$folder/$ScriptDirName"
+                done
         fi
 
         if [ "$folder" == ".local/share/fonts" ]; then
