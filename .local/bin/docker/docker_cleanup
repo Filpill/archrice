@@ -1,0 +1,6 @@
+#/bin/sh
+echo "Deleting Dangling Images"
+docker rmi $(docker images -f "dangling=true" -q)
+
+echo "Deleting Exited Containers"
+docker rm -v $(docker ps --filter status=exited -q)
