@@ -1,3 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+BASE_DIRECTORY="$(echo $(pwd))"
 source $BASE_DIRECTORY/variables
+
 docker container rm $CONTAINER_NAME

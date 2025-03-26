@@ -2,4 +2,4 @@
 BASE_DIRECTORY="$(echo $(pwd))"
 source $BASE_DIRECTORY/variables
 
-gcloud auth configure-docker $AR_TYPE
+docker pull $AR_TYPE/$GCP_PROJECT/$AR_REPO/$IMAGE_NAME:$IMAGE_TAG .

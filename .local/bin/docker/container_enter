@@ -1,3 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+BASE_DIRECTORY="$(echo $(pwd))"
 source $BASE_DIRECTORY/variables
+
 docker exec -it $CONTAINER_NAME /bin/bash

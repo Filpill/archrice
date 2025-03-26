@@ -1,3 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+BASE_DIRECTORY="$(echo $(pwd))"
 source $BASE_DIRECTORY/variables
+
 docker build -t $AR_TYPE/$GCP_PROJECT/$AR_REPO/$IMAGE_NAME:$IMAGE_TAG .

@@ -1,4 +1,5 @@
-#/bin/sh
+#!/bin/bash
+BASE_DIRECTORY="$(echo $(pwd))"
 source $BASE_DIRECTORY/variables
 
 echo "Deleting Dangling Images"

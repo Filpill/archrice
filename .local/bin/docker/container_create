@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+BASE_DIRECTORY="$(echo $(pwd))"
 source $BASE_DIRECTORY/variables
 
 if docker ps --filter "name=$CONTAINER_NAME" --filter "status=running" --format "{{.Names}}" | grep -q "^$CONTAINER_NAME$"; then

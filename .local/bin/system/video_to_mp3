@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Usage - Supply video filename when invoking script e.g.:
+    # ./video_to_mp3 "video_file.mkv"
+
+BASE_DIRECTORY="$(echo $(pwd))"
+VIDEO="$1"
+OUTPUT_PREFIX="${VIDEO::-4}"
+echo $OUTPUT_PREFIX
+ffmpeg -i $BASE_DIRECTORY/$VIDEO -vn -ar 44100 -ac 2 -b:a 192k $OUTPUT_PREFIX.mp3
