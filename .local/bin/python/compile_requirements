@@ -1,0 +1,3 @@
+#!/bin/bash
+BASE_DIRECTORY="$(echo $(pwd))"
+uv pip compile pyproject.toml > requirements.txt

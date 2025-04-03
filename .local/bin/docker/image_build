@@ -1,5 +1,12 @@
 #!/bin/bash
-BASE_DIRECTORY="$(echo $(pwd))"
+BASE_DIRECTORY="$(pwd)"
 source $BASE_DIRECTORY/variables
 
-docker build -t $AR_TYPE/$GCP_PROJECT/$AR_REPO/$IMAGE_NAME:$IMAGE_TAG .
+read -p "Do you want to enable caching? (y/n): " CACHE_CHOICE
+
+if [[ "$CACHE_CHOICE" == "y" || "$CACHE_CHOICE" == "Y" ]]; then
+    docker build -t $AR_TYPE/$GCP_PROJECT/$AR_REPO/$IMAGE_NAME:$IMAGE_TAG .
+else
+    docker build --no-cache -t $AR_TYPE/$GCP_PROJECT/$AR_REPO/$IMAGE_NAME:$IMAGE_TAG .
+fi
+

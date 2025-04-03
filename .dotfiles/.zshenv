@@ -12,6 +12,7 @@ export PATH="$HOME/.local/bin/camera:$PATH"
 export PATH="$HOME/.local/bin/docker:$PATH"
 export PATH="$HOME/.local/bin/git:$PATH"
 export PATH="$HOME/.local/bin/system:$PATH"
+export PATH="$HOME/.local/bin/python:$PATH"
 
 # Google SDK Credentials
 export PATH="$PATH:$GOOGLE_APPLICATION_CREDENTIALS" 

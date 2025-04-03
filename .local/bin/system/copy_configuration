@@ -17,7 +17,7 @@ for file in "${dotArray[@]}"; do
 done
 echo ""
 
-excludeConfigSubDir=("GIMP" "VSCodium" "Code" "obs-studio" "conda" "gcloud" "sunshine" "draw.io" "calcurse" "discord" "Electron" "gtk-2.0" "gtk-3.0")
+excludeConfigSubDir=("GIMP" "VSCodium" "Code" "obs-studio" "conda" "gcloud" "sunshine" "draw.io" "calcurse" "discord" "Electron" "gtk-2.0" "gtk-3.0" "google-chrome")
 
 # Saving configs, scripts, fonts 
 mainDirectories=(".config" ".local/bin" ".local/share/fonts")
@@ -52,7 +52,7 @@ for folder in "${mainDirectories[@]}"; do
         fi
 
         if [ "$folder" == ".local/bin" ]; then
-            scriptDirectories=("docker" "git" "camera" "system")
+            scriptDirectories=("docker" "git" "camera" "system" "python")
             echo "  ====================================="
             echo "      -----  Shell Scripts  -----"
             echo "  ====================================="
