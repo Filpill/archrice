@@ -1,61 +1,64 @@
-[snippets]
-custom_paths = []
-include_default_snippets = true
+[keymap]
+preset = "vim"
 
-[package_management]
-manager = "uv"
+[keymap.overrides]
+"cell.createAbove" = "Ctrl-Shift-arrowup"
+"cell.createBelow" = "Ctrl-Shift-arrowdown"
 
-[formatting]
-line_length = 79
+[server]
+browser = "default"
+follow_symlink = false
 
-[display]
-theme = "dark"
-default_width = "full"
-code_editor_font_size = 12
-cell_output = "below"
-dataframes = "rich"
+[completion]
+copilot = false
+activate_on_typing = true
 
 [save]
 autosave = "after_delay"
 autosave_delay = 1000
 format_on_save = false
 
-[completion]
-activate_on_typing = true
-copilot = false
+[experimental]
 
-[keymap]
-preset = "vim"
-[keymap.overrides]
+[snippets]
+custom_paths = []
+include_default_snippets = true
 
 [runtime]
-on_cell_change = "lazy"
-pythonpath = []
-output_max_bytes = 8000000
-watcher_on_save = "lazy"
-auto_instantiate = false
-std_stream_max_bytes = 1000000
 auto_reload = "lazy"
+auto_instantiate = false
+watcher_on_save = "lazy"
+pythonpath = []
+std_stream_max_bytes = 1000000
+output_max_bytes = 8000000
+on_cell_change = "lazy"
 
-[language_servers.pylsp]
-enable_ruff = true
-enable_mypy = true
-enable_flake8 = false
-enable_pylint = false
-enable_pydocstyle = false
-enable_pyflakes = false
-enabled = true
-
-[server]
-follow_symlink = false
-browser = "default"
+[display]
+cell_output = "below"
+code_editor_font_size = 12
+dataframes = "rich"
+theme = "dark"
+default_width = "full"
 
 [ai]
 rules = ""
-[ai.open_ai]
-
 [ai.anthropic]
 
 [ai.google]
 
-[experimental]
+[ai.open_ai]
+
+[language_servers.pylsp]
+enable_mypy = true
+enabled = true
+enable_pydocstyle = false
+enable_pylint = false
+enable_ruff = true
+enable_flake8 = false
+enable_pyflakes = false
+
+[package_management]
+manager = "uv"
+
+[formatting]
+line_length = 79

@@ -1,0 +1,4 @@
+#!/bin/sh
+gcloud compute instances list
+
+gcloud compute instances list | awk 'NR>1 {print $1}'

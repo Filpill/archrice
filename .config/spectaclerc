@@ -1,12 +1,6 @@
-[Annotations]
-annotationToolType=6
-
-[GuiConfig]
-captureMode=0
-
 [ImageSave]
-lastImageSaveAsLocation=file:///home/filpill/Pictures/Screenshots/nvidia_gpu_drivers.png
-lastImageSaveLocation=file:///home/filpill/Pictures/Screenshots/Screenshot_20250318_000117.png
+lastImageSaveAsLocation=file:///home/filpill/Pictures/Screenshots/sql_from_statement.png
+lastImageSaveLocation=file:///home/filpill/Pictures/Screenshots/sql_from_statement.png
 translatedScreenshotsFolder=Screenshots
 
 [VideoSave]

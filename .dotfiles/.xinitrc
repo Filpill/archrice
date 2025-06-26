@@ -17,6 +17,9 @@ sxhkd & # Key Binding Daemon
 # Terminal Properties
 picom -b
 
+# Turn off screen blanking
+xset s off -dpms
+
 # Start dwm
 ssh-agent dwm
 

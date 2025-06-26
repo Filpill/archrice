@@ -1,0 +1,13 @@
+#!/bin/bash
+BASE_DIRECTORY="$(echo $(pwd))"
+source $BASE_DIRECTORY/variables
+
+if docker ps --filter "name=$CONTAINER_NAME" --filter "status=running" --format "{{.Names}}" | grep -q "^$CONTAINER_NAME$"; then
+  echo "Container: $CONTAINER_NAME is running -- proceeding to stop container"
+  docker stop $CONTAINER_NAME
+else
+  echo "Container: $CONTAINER_NAME is not running"
+fi
+
+docker container rm $CONTAINER_NAME
+docker run -it --name=$CONTAINER_NAME -d $AR_TYPE/$GCP_PROJECT/$AR_REPO/$IMAGE_NAME:$IMAGE_TAG

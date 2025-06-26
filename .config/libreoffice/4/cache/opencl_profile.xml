@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile>
+ <version>LibreOffice v1</version>
+ <device>
+  <type>opencl</type>
+  <name>NVIDIA GeForce GTX 1070 Ti</name>
+  <driver>570.133.07</driver>
+  <time>18714</time>
+  <errors>false</errors>
+ </device>
+ <device>
+  <type>native</type>
+  <time>1726464</time>
+  <errors>false</errors>
+ </device>
+</profile>
