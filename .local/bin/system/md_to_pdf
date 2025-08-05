@@ -1,0 +1,5 @@
+#!/bin/sh
+pandoc $1.md -o $1.pdf \
+  --pdf-engine=xelatex \
+  -V mainfont="Trebuchet MS" \
+  -V geometry:margin=1.0in

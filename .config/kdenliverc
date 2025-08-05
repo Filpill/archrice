@@ -13,31 +13,33 @@ provider=Freesound
 zoom=7
 
 [Recent Dirs]
-KdenliveClipFolder[$e]=$HOME/Videos/obs/,$HOME/Videos/obs/0.2_hl_pomodorro/,$HOME/Videos/obs/6_vm_deletion/
+KdenliveClipFolder[$e]=$HOME/Videos/obs/,$HOME/Videos/obs/11_dbt_model/,$HOME/Videos/obs/10_pub_sub_update/
 KdenliveProjectsFolder[$e]=$HOME/Videos/kdenlive/projects,$HOME/Videos/kdenlive/projects/,$HOME/Documents
 
 [Recent Files]
-File1[$e]=$HOME/Videos/kdenlive/projects/chess_architecture_intro.kdenlive
-File2[$e]=$HOME/Videos/kdenlive/projects/3_chess_docker_cloudrun.kdenlive
-File3[$e]=$HOME/Videos/kdenlive/projects/macrodata_zugzwang.kdenlive
-File4[$e]=$HOME/Videos/kdenlive/projects/4_chess_workload_identity.kdenlive
-File5[$e]=$HOME/Videos/kdenlive/projects/5_chess_transform.kdenlive
-File6[$e]=$HOME/Videos/kdenlive/projects/5_vm_deleter.kdenlive
-File7[$e]=$HOME/Videos/kdenlive/projects/6_vm_deleter.kdenlive
-File8[$e]=$HOME/Videos/kdenlive/projects/0-2_hl_pomodorro_short.kdenlive
-File9[$e]=$HOME/Videos/kdenlive/projects/7_cloud_run_dash.kdenlive
-Name1[$e]=chess_architecture_intro.kdenlive
-Name2[$e]=3_chess_docker_cloudrun.kdenlive
-Name3[$e]=macrodata_zugzwang.kdenlive
-Name4[$e]=4_chess_workload_identity.kdenlive
-Name5[$e]=5_chess_transform.kdenlive
-Name6[$e]=5_vm_deleter.kdenlive
-Name7[$e]=6_vm_deleter.kdenlive
-Name8[$e]=0-2_hl_pomodorro_short.kdenlive
-Name9[$e]=7_cloud_run_dash.kdenlive
+File1[$e]=$HOME/Videos/kdenlive/projects/5_vm_deleter.kdenlive
+File10[$e]=$HOME/Videos/kdenlive/projects/11_dbt_airflow.kdenlive
+File2[$e]=$HOME/Videos/kdenlive/projects/6_vm_deleter.kdenlive
+File3[$e]=$HOME/Videos/kdenlive/projects/0-2_hl_pomodorro_short.kdenlive
+File4[$e]=$HOME/Videos/kdenlive/projects/7_cloud_run_dash.kdenlive
+File5[$e]=$HOME/Videos/kdenlive/projects/8_pub_sub_enhance.kdenlive
+File6[$e]=$HOME/Videos/kdenlive/projects/0-3_thinkpad_stickers.kdenlive
+File7[$e]=$HOME/Videos/kdenlive/projects/0-3_thinkpad_stickers-6000.kdenlive
+File8[$e]=$HOME/Videos/kdenlive/projects/9_dash_app_update.kdenlive
+File9[$e]=$HOME/Videos/kdenlive/projects/10_pub_sub_update.kdenlive
+Name1[$e]=5_vm_deleter.kdenlive
+Name10[$e]=11_dbt_airflow.kdenlive
+Name2[$e]=6_vm_deleter.kdenlive
+Name3[$e]=0-2_hl_pomodorro_short.kdenlive
+Name4[$e]=7_cloud_run_dash.kdenlive
+Name5[$e]=8_pub_sub_enhance.kdenlive
+Name6[$e]=0-3_thinkpad_stickers.kdenlive
+Name7[$e]=0-3_thinkpad_stickers-6000.kdenlive
+Name8[$e]=9_dash_app_update.kdenlive
+Name9[$e]=10_pub_sub_update.kdenlive
 
 [RenderWidget]
-showoptions=false
+showoptions=true
 
 [Scope_Histogram]
 autoRefresh=true
@@ -95,12 +97,13 @@ ffmpegpath[$e]=/usr/bin/ffmpeg
 ffplaypath[$e]=/usr/bin/ffplay
 ffprobepath[$e]=/usr/bin/ffprobe
 kdenliverendererpath[$e]=/usr/bin/kdenlive_render
-lastCacheCheck=2025,5,7,15,34,10.698
+lastCacheCheck=2025,7,18,18,51,26.153
 meltpath[$e]=/usr/bin/melt-7
 mltpath[$e]=/usr/share/mlt-7/profiles
 
 [project]
 SupportedHWCodecs=h264_nvenc,hevc_nvenc
+transcodeFriendly=Lossy x264 I frame only (NVidia GPU)
 
 [timeline]
 trackheight=75
@@ -113,7 +116,7 @@ defaultrescalewidth=960
 guidesCategories=Category 1:0:#9b59b6,Category 2:1:#3daee9,Category 3:2:#1abc9c,Category 4:3:#1cdc9a,Category 5:4:#c9ce3b,Category 6:5:#fdbc4b,Category 7:6:#f39c1f,Category 8:7:#f47750,Category 9:8:#da4453
 monitor_audio=false
 producerslist=pango,pixbuf,vorbis,qimage,qtext,kdenlivetitle,avformat,avformat-novalidate,xml,xml-string,xml-nogl,xml-clip,framebuffer,blipflash,count,pgm,subtitle,decklink,glaxnimate,frei0r.ising0r,frei0r.lissajous0r,frei0r.nois0r,frei0r.onecol0r,frei0r.partik0l,frei0r.plasma,frei0r.test_pat_B,frei0r.test_pat_C,frei0r.test_pat_G,frei0r.test_pat_I,frei0r.test_pat_L,frei0r.test_pat_R,abnormal,blank,color,colour,consumer,hold,loader,loader-nogl,melt,melt_file,noise,timewarp,tone
-project_fps=60
+renderProfile=MP4-H265 (HEVC)
 
 [version]
-version=25.04.0
+version=25.04.3
