@@ -8,6 +8,8 @@ pacman;     graphicsmagick;                              "Image processing syste
 pacman;     gphoto2;                                     "Command line front-end for libgphoto2"
 pacman;     hugo;                                        "Static Website Generator"
 pacman;     jq;                                          "Command Line JSON parser"
+pacman;     fzf;                                         "Enables fuzzy finding capability"
+pacman;     fd;                                          "Finder tool written in rust"
 pacman;     texlive-latex;                               "Essential LaTeX utilities"
 pacman;     texlive-xetex;                               "XeTex Utility Extension"
 pacman;     moreutils;                                   "Extra essential Linux utilities"

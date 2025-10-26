@@ -1,0 +1,50 @@
+#!/bin/sh
+# Fuzzy finder version of search_directory
+# Uses fzf for better fuzzy matching capabilities
+# Uses fd when available for faster performance
+
+# Generate directory list using fd (fast) or find (fallback)
+get_directories() {
+    if command -v fd >/dev/null 2>&1; then
+        # Use fd (much faster than find)
+        {
+            fd -t d -H -d 7 . /home/filpill \
+                -E '.mozilla' -E '.rustup' -E '.cache' -E '.texlive' -E '.conda' \
+                -E '.vscode' -E '.steam' -E 'Steam' -E '.dotnet' -E '.cargo' \
+                -E '*cache*' -E '*Cache*' -E '*log*' -E '*logs*' -E '.log' -E '.git'
+            fd -t d -d 5 . /etc
+            fd -t d -d 5 . /usr/local
+            fd -t d -d 5 . /opt
+            fd -t d -d 5 . /mnt
+            fd -t d -d 5 . /srv
+        } 2>/dev/null
+    else
+        # Fall back to find (shallower depth for performance)
+        {
+            find /home/filpill -maxdepth 5 -type d \
+                -not \( -path "*.mozilla*" -o -path "*.rustup*" -o -path "*.cache*" \
+                        -o -path "*.texlive*" -o -path "*.conda*" -o -path "*.vscode*" \
+                        -o -path "*.steam*" -o -path "*Steam*" -o -path "*.dotnet*" \
+                        -o -path "*.cargo*" -o -path "*cache*" -o -path "*Cache*" \
+                        -o -path "*log*" -o -path "*logs*" -o -path "*.log*" \
+                        -o -path "*.git*" -prune \)
+            find /etc -maxdepth 3 -type d
+            find /usr/local -maxdepth 3 -type d
+            find /opt -maxdepth 3 -type d
+            find /mnt -maxdepth 3 -type d
+            find /srv -maxdepth 3 -type d
+        } 2>/dev/null
+    fi
+}
+
+# Check if fzf is available, otherwise fall back to dmenu
+if command -v fzf >/dev/null 2>&1; then
+    selected_dir=$(get_directories | fzf --prompt="Select Directory: " --height=40% --reverse --border)
+else
+    selected_dir=$(get_directories | dmenu -i -l 10 -p "Select Directory:")
+fi
+
+# Type the cd command only if a directory was selected
+if [ -n "$selected_dir" ] && [ -d "$selected_dir" ]; then
+    xdotool type cd\ "$selected_dir" && xdotool key "KP_Enter"
+fi

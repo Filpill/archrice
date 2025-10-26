@@ -67,6 +67,42 @@ lfcd () {
 }
 bindkey -s '^o' 'lfcd\n'
 
+# Fuzzy directory search and navigation
+sd() {
+    local selected_dir
+    if command -v fd >/dev/null 2>&1; then
+        # Use fd (fast)
+        selected_dir=$( {
+            fd -t d -H -d 7 . /home/filpill \
+                -E '.mozilla' -E '.rustup' -E '.cache' -E '.texlive' -E '.conda' \
+                -E '.vscode' -E '.steam' -E 'Steam' -E '.dotnet' -E '.cargo' \
+                -E '*cache*' -E '*Cache*' -E '*log*' -E '*logs*' -E '.log' -E '.git'
+            fd -t d -d 5 . /etc
+            fd -t d -d 5 . /usr/local
+            fd -t d -d 5 . /opt
+            fd -t d -d 5 . /mnt
+            fd -t d -d 5 . /srv
+        } 2>/dev/null | fzf --prompt="Select Directory: " --height=40% --reverse --border)
+    else
+        # Fall back to find
+        selected_dir=$( {
+            find /home/filpill -maxdepth 5 -type d \
+                -not \( -path "*.mozilla*" -o -path "*.rustup*" -o -path "*.cache*" \
+                        -o -path "*.texlive*" -o -path "*.conda*" -o -path "*.vscode*" \
+                        -o -path "*.steam*" -o -path "*Steam*" -o -path "*.dotnet*" \
+                        -o -path "*.cargo*" -o -path "*cache*" -o -path "*Cache*" \
+                        -o -path "*log*" -o -path "*logs*" -o -path "*.log*" \
+                        -o -path "*.git*" -prune \)
+            find /etc -maxdepth 3 -type d
+            find /usr/local -maxdepth 3 -type d
+            find /opt -maxdepth 3 -type d
+            find /mnt -maxdepth 3 -type d
+            find /srv -maxdepth 3 -type d
+        } 2>/dev/null | fzf --prompt="Select Directory: " --height=40% --reverse --border)
+    fi
+    [ -n "$selected_dir" ] && [ -d "$selected_dir" ] && cd "$selected_dir"
+}
+
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
