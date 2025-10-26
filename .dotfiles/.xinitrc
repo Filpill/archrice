@@ -10,15 +10,14 @@ xwallpaper --output DP-2 --stretch $HOME/.local/src/wallpaperDL/screensaver/pixe
 xwallpaper --output DP-0 --stretch $HOME/.local/src/wallpaperDL/screensaver/pixel_winter_cat.jpg
 
 # Keyboard Properties
-setxkbmap gb
-xset r rate 300 50 &
-sxhkd & # Key Binding Daemon
+xset r rate 200 60 & # re-apply with ./local/bin/system/fix_keyboard_settings
+sxhkd &              # Key Binding Daemon
 
 # Terminal Properties
 picom -b
 
 # Turn off screen blanking
-xset s off -dpms
+#xset s off -dpms
 
 # Start dwm
 ssh-agent dwm

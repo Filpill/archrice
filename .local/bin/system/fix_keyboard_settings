@@ -1,0 +1,13 @@
+#!/bin/sh
+# Fix keyboard settings after system updates
+# Sets GB keyboard layout at system level and keyboard repeat rate
+
+# Set keyboard layout
+sudo localectl set-x11-keymap gb
+
+# Set keyboard repeat rate
+xset r rate 200 60 &
+
+echo "Keyboard layout set to GB"
+echo "Keyboard repeat rate set to 200ms delay, 60 repeats/sec"
+localectl status
