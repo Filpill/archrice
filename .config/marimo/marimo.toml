@@ -1,64 +1,64 @@
-[keymap]
-preset = "vim"
+[formatting]
+line_length = 79
 
-[keymap.overrides]
-"cell.createAbove" = "Ctrl-Shift-arrowup"
-"cell.createBelow" = "Ctrl-Shift-arrowdown"
-
-[server]
-browser = "default"
-follow_symlink = false
+[language_servers.pylsp]
+enable_pylint = false
+enable_mypy = true
+enable_pydocstyle = false
+enable_ruff = true
+enabled = true
+enable_pyflakes = false
+enable_flake8 = false
 
 [completion]
 copilot = false
 activate_on_typing = true
 
-[save]
-autosave = "after_delay"
-autosave_delay = 1000
-format_on_save = false
-
-[experimental]
+[keymap]
+preset = "vim"
+[keymap.overrides]
+"cell.createAbove" = "Ctrl-Shift-arrowup"
+"cell.createBelow" = "Ctrl-Shift-arrowdown"
 
 [snippets]
 custom_paths = []
 include_default_snippets = true
 
 [runtime]
-auto_reload = "lazy"
-auto_instantiate = false
-watcher_on_save = "lazy"
+output_max_bytes = 8000000
+on_cell_change = "autorun"
 pythonpath = []
 std_stream_max_bytes = 1000000
-output_max_bytes = 8000000
-on_cell_change = "lazy"
+auto_instantiate = false
+auto_reload = "autorun"
+watcher_on_save = "lazy"
 
 [display]
+theme = "dark"
+dataframes = "rich"
+default_width = "full"
 cell_output = "below"
 code_editor_font_size = 12
-dataframes = "rich"
-theme = "dark"
-default_width = "full"
+
+[experimental]
+
+[package_management]
+manager = "uv"
 
 [ai]
 rules = ""
-[ai.anthropic]
 
 [ai.google]
 
 [ai.open_ai]
 
-[language_servers.pylsp]
-enable_mypy = true
-enabled = true
-enable_pydocstyle = false
-enable_pylint = false
-enable_ruff = true
-enable_flake8 = false
-enable_pyflakes = false
+[ai.anthropic]
 
-[package_management]
-manager = "uv"
+[server]
+follow_symlink = false
+browser = "default"
 
-[formatting]
-line_length = 79
+[save]
+format_on_save = false
+autosave_delay = 1000
+autosave = "after_delay"

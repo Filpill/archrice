@@ -1,0 +1,69 @@
+#!/bin/bash
+LOGFILE="/var/log/hdmi-auto-enable.log"
+
+log_msg() {
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a "$LOGFILE"
+}
+
+log_msg "HDMI detection triggered"
+
+# Auto-detect DISPLAY if not set (needed when running from udev)
+if [ -z "$DISPLAY" ]; then
+    # Try common display values
+    for disp in :0 :1 /tmp/.X11-unix/*; do
+        if [ -e "/tmp/.X11-unix/$(basename $disp)" ] 2>/dev/null; then
+            DISPLAY=":$(basename $disp)"
+            break
+        fi
+    done
+    [ -z "$DISPLAY" ] && DISPLAY=":0"
+fi
+
+export DISPLAY
+
+detect_hdmi() {
+    xrandr | grep "HDMI.*[[:space:]]connected" | awk '{print $1}' | head -1
+}
+
+detect_primary() {
+    xrandr | grep "primary" | awk '{print $1}' | head -1
+}
+
+enable_hdmi_x11() {
+    local hdmi=$1
+    local primary=$2
+    if [ -z "$hdmi" ]; then
+        return 1
+    fi
+
+    log_msg "X11: Enabling $hdmi (extending above $primary)"
+    xrandr --output "$hdmi" --auto --above "$primary" 2>&1 | tee -a "$LOGFILE"
+}
+
+main() {
+    hdmi=$(detect_hdmi)
+    primary=$(detect_primary)
+
+    if [ -z "$hdmi" ]; then
+        log_msg "No HDMI connected"
+        return 1
+    fi
+
+    if [ -z "$primary" ]; then
+        log_msg "No primary display found"
+        return 1
+    fi
+
+    log_msg "HDMI port detected: $hdmi"
+
+    if command -v xrandr &> /dev/null; then
+        enable_hdmi_x11 "$hdmi" "$primary"
+    else
+        log_msg "ERROR: xrandr not found"
+        return 1
+    fi
+
+    log_msg "HDMI enable completed"
+}
+
+main

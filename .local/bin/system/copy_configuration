@@ -17,7 +17,7 @@ for file in "${dotArray[@]}"; do
 done
 echo ""
 
-excludeConfigSubDir=("GIMP" "VSCodium" "Code" "obs-studio" "conda" "gcloud" "sunshine" "draw.io" "calcurse" "discord" "Electron" "gtk-2.0" "gtk-3.0" "google-chrome" "google-chrome-for-testing" "unity3d" "libreoffice")
+includeConfigSubDir=("fontconfig" "htop" "lf" "marimo" "picom" "shortcuts" "screenkey.json" "user-dirs.dirs" "user-dirs.locale")
 
 # Saving configs, scripts, fonts 
 mainDirectories=(".config" ".local/bin" ".local/share/fonts")
@@ -30,17 +30,17 @@ for folder in "${mainDirectories[@]}"; do
             echo "  ===================================="
             echo "      -----  Config Files  -----"
             echo "  ===================================="
-            # Loop through subdirectories inside ~/.config and skip the excluded ones
+            # Loop through subdirectories inside ~/.config and only copy the included ones
             for subFolder in "$HOME/$folder"/*; do
                 subFolderName=$(basename "$subFolder")
 
 
-                if [[ ! " ${excludeConfigSubDir[@]} " =~ " ${subFolderName} " ]] && [ -f "$subFolder" ]; then
+                if [[ " ${includeConfigSubDir[@]} " =~ " ${subFolderName} " ]] && [ -f "$subFolder" ]; then
                     echo "  Saving   |  $subFolder"
                     cp "$subFolder" "$riceCollector/$folder/"
                 fi
 
-                if [[ ! " ${excludeConfigSubDir[@]} " =~ " ${subFolderName} " ]] && [ -d "$subFolder" ]; then
+                if [[ " ${includeConfigSubDir[@]} " =~ " ${subFolderName} " ]] && [ -d "$subFolder" ]; then
                     echo "  Saving   |  $subFolder"
                     cp -r "$subFolder" "$riceCollector/$folder/"
                 fi
@@ -54,7 +54,7 @@ for folder in "${mainDirectories[@]}"; do
             echo "  ====================================="
                 for scriptDir in "$HOME/$folder"/*; do
                     ScriptDirName=$(basename "$scriptDir")
-                    echo "Saving configuration | $scriptDir"
+                    echo "  Saving   | $scriptDir"
                     mkdir "$riceCollector/$folder/$ScriptDirName"
                     cp -r "$scriptDir/." "$riceCollector/$folder/$ScriptDirName"
                 done
@@ -64,7 +64,7 @@ for folder in "${mainDirectories[@]}"; do
             echo "  ====================================="
             echo "      ------ 󰀺 Font Files  ------"
             echo "  ====================================="
-            echo "Saving configuration | $HOME/$folder"
+            echo "  Saving   | $HOME/$folder"
             cp -r "$HOME/$folder/." "$riceCollector/$folder"
         fi
 

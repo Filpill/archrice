@@ -6,8 +6,8 @@ xrandr --output DP-2 --scale 1x1
 xrandr --output DP-0 --scale 0.6x0.6
 #
 # Wallpaper Script
-xwallpaper --output DP-2 --stretch $HOME/.local/src/wallpaperDL/screensaver/pirate_coast.png
-xwallpaper --output DP-0 --stretch $HOME/.local/src/wallpaperDL/screensaver/lake_reflection.jpg
+xwallpaper --output DP-2 --stretch $HOME/.local/src/wallpaperDL/screensaver/pixel_winter_cat.jpg
+xwallpaper --output DP-0 --stretch $HOME/.local/src/wallpaperDL/screensaver/pixel_winter_cat.jpg
 
 # Keyboard Properties
 setxkbmap gb
